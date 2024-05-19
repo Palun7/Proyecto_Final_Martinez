@@ -1,0 +1,44 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+/* base.html */
+
+.navbar {
+    display: grid;
+    grid-template-columns: repeat(10, 10vw);
+    grid-template-rows: 40px;
+    width: 100vw;
+    background-color: rgb(162, 105, 67);
+    align-items: center;
+}
+
+.paginas {
+    grid-column-start: 8;
+}
+
+.links {
+    display: flex;
+}
+
+.login {
+    grid-column-start: 9;
+    grid-column-end: 10;
+    display: flex;
+    gap: 20px;
+}
+
+.titulo {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* login */
+
+.titulo_login {
+    color: blueviolet;
+}
+

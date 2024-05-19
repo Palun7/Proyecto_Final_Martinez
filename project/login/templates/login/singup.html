@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Singup
+{% endblock title %}
+
+{% block content %}
+    <nav class="navbar">
+        <div class="titulo">
+            <h3><a href="{% url 'core:index' %}">Home</a></h3>
+            {% if user.is_authenticated %}
+                <h5 class="user">{{ user.username }}</h5>
+            {% endif %}
+        </div>
+        <div class="login">
+                {% if user.is_authenticated %}
+                <form action="{% url 'login:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-dark">Logout</button>
+                </form>
+                {% else %}
+                    <li><a href="{% url 'login:index' %}">login</a></li>
+                {% endif %}
+        </div>
+    </nav>
+    {% if mensaje %}
+        <p>{{ mensaje }}</p>
+        <a href="{% url 'login:index' %}"></a>
+    {% else %}
+        <h1>Crear Usuario</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{form}}
+            <input type="hidden" name="next" value="{% url 'login:index' %}">
+            <button type="submit">Guardar</button>
+        </form>
+    {% endif %}
+{% endblock content %}
