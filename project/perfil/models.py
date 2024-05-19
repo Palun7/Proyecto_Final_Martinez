@@ -28,7 +28,7 @@ class Mascota(models.Model):
     sexo = models.CharField(max_length=20, null=True, blank=True, verbose_name='Sexo')
     raza = models.ForeignKey(Raza, on_delete=models.SET_NULL,null=True, blank=True, verbose_name='Raza')
     color_pelo = models.CharField(max_length=100, null=True,blank=True, verbose_name='Color de pelo')
-    foto = models.ImageField(null=True, blank=True)
+    foto = models.ImageField(upload_to='fotos',null=True, blank=True)
 
     @property
     def edad(self):
@@ -37,7 +37,7 @@ class Mascota(models.Model):
         return edad
 
     def __str__(self):
-        return f'{self.nombre}'
+        return self.nombre
 
     class Meta:
         verbose_name = 'Mascota'

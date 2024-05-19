@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    {% if form.instance.pk %}
+    Edita tu Mascota
+    {% else %}
+    Registra tu mascota
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+    <nav class="navbar">
+        <div class="titulo">
+            <h3><a href="{% url 'core:index' %}">Home</a></h3>
+            {% if user.is_authenticated %}
+                <h5 class="user">{{ user.username }}</h5>
+            {% endif %}
+        </div>
+        <div class="paginas">
+            <ul class="links">
+                <li><a href="{% url 'perfil:index' %}">Perfil</a></li>
+            </ul>
+        </div>
+        <div class="login">
+                {% if user.is_authenticated %}
+                <form action="{% url 'login:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-dark">Logout</button>
+                </form>
+                {% else %}
+                    <li><a href="{% url 'login:singup' %}">Crear Usuario</a></li>
+                {% endif %}
+        </div>
+    </nav>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Guardar</button>
+    </form>
+    <div>
+        <a href="{% url 'perfil:mascota_list' %}">Volver</a>
+    </div>
+{% endblock content %}
