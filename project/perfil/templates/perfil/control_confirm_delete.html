@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block title %}
-    Borrar Mascota
+    Borrar control médico
 {% endblock title %}
 
 {% block content %}
@@ -28,12 +28,12 @@
                 {% endif %}
         </div>
     </nav>
-    <p>¿Confirma borrar a {{ object.nombre }}?</p>
+    <p>¿Confirma borrar el control médico de {{ object.nombre }}?</p>
     <form method="post">
         {% csrf_token %}
         <button type="submit">Eliminar</button>
     </form>
     <div>
-        <a href="{% url 'perfil:mascota_list' %}">Volver</a>
+        <a href="{% url 'perfil:control_list' %}">Volver</a>
     </div>
 {% endblock content %}

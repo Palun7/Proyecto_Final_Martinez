@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block title %}
-    Tus Mascotas
+    Controles médicos
 {% endblock title %}
 
 {% block content %}
@@ -28,25 +28,23 @@
                 {% endif %}
         </div>
     </nav>
-    <h1>Tus Mascotas</h1>
+    <h1>Controles médicos</h1>
     <div class="busqueda">
         <form action="{% url 'perfil:mascota_list' %}" method="get">
             <input type="text" name="busqueda" placeholder="Buscar mascota..." class="texto_busqueda">
         </form>
     </div>
-    <a href="{% url 'perfil:mascota_create' %}" class="mascota">Registra tu mascota</a>
+    <a href="{% url 'perfil:control_create' %}" class="mascota">Registra un control médico</a>
     <ul>
         {% for object in object_list %}
-            {% if object.foto %}
-                <img src="{{ object.foto.url }}" alt="Foto de {{ object.nombre }}" width="50" height="">
-            {% else %}
-                <p>No hay foto disponible</p>
-            {% endif %}
-            <li>{{object.nombre}}</li>
+        {% if object.nombre.foto %}
+            <img src="{{ object.nombre.foto.url }}" alt="Foto de {{ object.nombre }}" width="50" height="">
+        {% endif %}
+            <li>Control de {{object.nombre}}</li>
             <div class="crud">
-                <a href="{% url 'perfil:mascota_detail' object.id %}">Detalles</a>
-                <a href="{% url 'perfil:mascota_update' object.id %}">Editar</a>
-                <a href="{% url 'perfil:mascota_delete' object.id %}">Borrar</a>
+                <a href="{% url 'perfil:control_detail' object.id %}">Detalles</a>
+                <a href="{% url 'perfil:control_update' object.id %}">Editar</a>
+                <a href="{% url 'perfil:control_delete' object.id %}">Borrar</a>
             </div>
         {% endfor %}
     </ul>

@@ -44,8 +44,8 @@ class Mascota(models.Model):
         verbose_name_plural = 'Mascotas'
 
 class Control(models.Model):
-    nombre = models.ForeignKey(Mascota, on_delete=models.CASCADE)
-    peso = models.FloatField(verbose_name='Peso (Kg.)')
+    nombre = models.OneToOneField(Mascota, on_delete=models.CASCADE, unique=True)
+    peso = models.FloatField(verbose_name='Peso (Kg.)', null=True, blank=True)
     vacunas = models.ManyToManyField(Vacunas)
     ultima_visita_veterinario = models.DateField(null=True,blank=True, verbose_name='Ultima visita al veterinario')
 
@@ -57,6 +57,9 @@ class Control(models.Model):
 
     def __str__(self):
         return f'{self.nombre}, Ultimo control fue hace: {self.ultima_visita}'
+
+    def get_vacunas_str(self):
+        return ' / '.join([vacuna.nombre for vacuna in self.vacunas.all()])
 
     class Meta:
         verbose_name = 'Control'
