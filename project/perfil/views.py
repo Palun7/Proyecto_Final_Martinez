@@ -25,6 +25,10 @@ class MascotaCreate(CreateView):
     form_class= MascotaForm
     success_url = reverse_lazy('perfil:mascota_list')
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
 class MascotaDetail(DetailView):
     model = Mascota
 
@@ -42,17 +46,31 @@ class MascotaList(LoginRequiredMixin, ListView):
     context_object_name = 'mascotas'
     login_url = 'login/index.html'
 
-    def get_queryset(self) -> QuerySet[Any]:
-        queryset = super().get_queryset()
+    def get_queryset(self):
+        queryset = Mascota.objects.filter(user=self.request.user)
         busqueda = self.request.GET.get("busqueda")
         if busqueda:
-            queryset = Mascota.objects.filter(Q(nombre__icontains=busqueda),Q(sexo__icontains=busqueda),Q(raza__icontains=busqueda),Q(color_pelo__icontains=busqueda))
+            queryset = queryset.filter(
+                Q(nombre__icontains=busqueda) |
+                Q(sexo__icontains=busqueda) |
+                Q(raza__icontains=busqueda) |
+                Q(color_pelo__icontains=busqueda)
+            )
         return queryset
 
 class ControlCreate(CreateView):
     model = Control
     form_class= ControlForm
     success_url = reverse_lazy('perfil:control_list')
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 class ControlDetail(DetailView):
     model = Control
@@ -76,9 +94,13 @@ class ControlList(LoginRequiredMixin, ListView):
     context_object_name = 'controles'
     login_url = 'login/index.html'
 
-    def get_queryset(self) -> QuerySet[Any]:
-        queryset = super().get_queryset()
+    def get_queryset(self):
+        queryset = Control.objects.filter(user=self.request.user)
         busqueda = self.request.GET.get("busqueda")
         if busqueda:
-            queryset = Control.objects.filter(Q(nombre__icontains=busqueda),Q(peso__icontains=busqueda),Q(vacunas__icontains=busqueda))
+            queryset = queryset.filter(
+                Q(nombre__icontains=busqueda) |
+                Q(peso__icontains=busqueda) |
+                Q(vacunas__icontains=busqueda)
+            )
         return queryset

@@ -4,7 +4,13 @@ from .models import Control, Vacunas, Mascota, Raza
 class ControlForm(forms.ModelForm):
     class Meta:
         model = Control
-        fields = '__all__'
+        fields = ['nombre', 'peso', 'vacunas']
+
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)
+        super().__init__(*args, **kwargs)
+        if user:
+            self.fields['nombre'].queryset = Mascota.objects.filter(user=user)
 
 class VacunasForm(forms.ModelForm):
     class Meta:
@@ -14,7 +20,7 @@ class VacunasForm(forms.ModelForm):
 class MascotaForm(forms.ModelForm):
     class Meta:
         model= Mascota
-        fields = '__all__'
+        fields = ['nombre', 'fecha_nacimiento', 'sexo', 'raza', 'color_pelo', 'foto']
 
 class RazaForm(forms.ModelForm):
     class Meta:

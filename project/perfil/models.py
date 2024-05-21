@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import date
-from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Raza(models.Model):
     nombre = models.CharField(max_length=100)
@@ -30,6 +30,7 @@ class Mascota(models.Model):
     raza = models.ForeignKey(Raza, on_delete=models.SET_NULL,null=True, blank=True, verbose_name='Raza')
     color_pelo = models.CharField(max_length=100, null=True,blank=True, verbose_name='Color de pelo')
     foto = models.ImageField(upload_to='fotos',null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     @property
     def edad(self):
@@ -49,6 +50,7 @@ class Control(models.Model):
     peso = models.FloatField(verbose_name='Peso (Kg.)', null=True, blank=True)
     vacunas = models.ManyToManyField(Vacunas)
     fecha_control = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.nombre}, Fecha control: {self.fecha_control.day}/{self.fecha_control.month}/{self.fecha_control.year}.'
