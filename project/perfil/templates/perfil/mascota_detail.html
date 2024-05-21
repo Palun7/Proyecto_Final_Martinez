@@ -8,40 +8,37 @@
 {% block content %}
     <nav class="navbar">
         <div class="titulo">
-            <h3><a href="{% url 'core:index' %}">Home</a></h3>
-            {% if user.is_authenticated %}
-                <h5 class="user">{{ user.username }}</h5>
-            {% endif %}
+            <h3><a href="{% url 'core:index' %}" class="link">Home</a></h3>
         </div>
         <div class="paginas">
             <ul class="links">
-                <li><a href="{% url 'perfil:index' %}">Perfil</a></li>
+                <a href="{% url 'perfil:index' %}" class="link">Perfil: {{ user.username }}</a>
             </ul>
         </div>
         <div class="login">
                 {% if user.is_authenticated %}
                 <form action="{% url 'login:logout' %}" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-dark">Logout</button>
+                    <button type="submit" class="logout">Logout</button>
                 </form>
-                {% else %}
-                    <li><a href="{% url 'login:singup' %}">Crear Usuario</a></li>
                 {% endif %}
         </div>
     </nav>
-    <ul>
-        <li>Nombre: {{ object.nombre }}</li>
-        <li>Fecha de Nacimiento: {{ object.fecha_nacimiento }}</li>
-        <li>Sexo: {{ object.sexo }}</li>
-        <li>Raza: {{ object.raza }}</li>
-        <li>Color de pelo: {{ object.color_pelo }}</li>
-        {% if object.foto %}
+    <main class="contenedor">
+        <ul>
+            <li>Nombre: {{ object.nombre }}</li>
+            <li>Fecha de Nacimiento: {{ object.fecha_nacimiento }}</li>
+            <li>Sexo: {{ object.sexo }}</li>
+            <li>Raza: {{ object.raza }}</li>
+            <li>Color de pelo: {{ object.color_pelo }}</li>
+            {% if object.foto %}
             <img src="{{ object.foto.url }}" alt="Foto de {{ object.nombre }}" width="200" height="">
-        {% else %}
+            {% else %}
             <p>No hay foto disponible</p>
-        {% endif %}
-    </ul>
-    <div>
-        <a href="{% url 'perfil:mascota_list' %}">Volver</a>
-    </div>
+            {% endif %}
+        </ul>
+        <div>
+            <a href="{% url 'perfil:mascota_list' %}">Volver</a>
+        </div>
+    </main>
 {% endblock content %}

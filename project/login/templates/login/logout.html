@@ -7,23 +7,20 @@
 {% block content %}
     <nav class="navbar">
         <div class="titulo">
-            <h3><a href="{% url 'core:index' %}">Home</a></h3>
+            <h3><a href="{% url 'core:index' %}" class="link">Home</a></h3>
             {% if user.is_authenticated %}
                 <h5 class="user">{{ user.username }}</h5>
             {% endif %}
         </div>
         <div class="login">
-                {% if user.is_authenticated %}
-                <form action="{% url 'login:logout' %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-dark">Logout</button>
-                </form>
                 {% else %}
-                    <li><a href="{% url 'login:index' %}">login</a></li>
-                    <li><a href="{% url 'login:singup' %}">Crear Usuario</a></li>
+                    <a href="{% url 'login:index' %}" class="link">login</a>
+                    <a href="{% url 'login:singup' %}" class="link">Crear Usuario</a>
                 {% endif %}
         </div>
     </nav>
-    <h1>Paw-sesión Cerrada</h1>
-    <p>Te esperamos pronto.</p>
+    <main class="contenedor">
+        <h1>Paw-sesión Cerrada</h1>
+        <p>Te esperamos pronto.</p>
+    </main>
 {% endblock content %}

@@ -8,16 +8,18 @@
 {% block content %}
     <nav class="navbar">
         <div class="titulo">
-            <h3><a href="{% url 'core:index' %}">Home</a></h3>
+            <h3><a href="{% url 'core:index' %}" class="link">Home</a></h3>
         </div>
         <div class="login">
                 <form action="{% url 'login:logout' %}" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-dark">Logout</button>
+                    <button type="submit" class="logout">Logout</button>
                 </form>
         </div>
     </nav>
-    <h1>{{ user.username }}</h1>
-    <a href="{% url 'perfil:mascota_list' %}" class="mascota">Ver tus mascotas</a>
-    <a href="{% url 'perfil:control_list' %}" class="mascota">Ver controles médicos</a>
+    <main class="contenedor">
+        <h1>{{ user.username }}</h1>
+        <a href="{% url 'perfil:mascota_list' %}" class="mascota">Ver tus mascotas</a>
+        <a href="{% url 'perfil:control_list' %}" class="mascota">Ver controles médicos</a>
+    </main>
 {% endblock content %}

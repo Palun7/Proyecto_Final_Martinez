@@ -7,40 +7,36 @@
 {% block content %}
     <nav class="navbar">
         <div class="titulo">
-            <h3><a href="{% url 'core:index' %}">Home</a></h3>
-            {% if user.is_authenticated %}
-                <h5 class="user">{{ user.username }}</h5>
-            {% endif %}
+            <h3><a href="{% url 'core:index' %}" class="link">Home</a></h3>
         </div>
         <div class="paginas">
             <ul class="links">
-                <li><a href="{% url 'perfil:index' %}">Perfil</a></li>
+                <a href="{% url 'perfil:index' %}" class="link">Perfil: {{ user.username }}</a>
             </ul>
         </div>
         <div class="login">
                 {% if user.is_authenticated %}
                 <form action="{% url 'login:logout' %}" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-dark">Logout</button>
+                    <button type="submit" class="logout">Logout</button>
                 </form>
-                {% else %}
-                    <li><a href="{% url 'login:singup' %}">Crear Usuario</a></li>
                 {% endif %}
         </div>
     </nav>
-    <h1>Tus Mascotas</h1>
-    <div class="busqueda">
-        <form action="{% url 'perfil:mascota_list' %}" method="get">
-            <input type="text" name="busqueda" placeholder="Buscar mascota..." class="texto_busqueda">
-        </form>
-    </div>
-    <a href="{% url 'perfil:mascota_create' %}" class="mascota">Registra tu mascota</a>
-    <ul>
-        {% for object in object_list %}
+    <main class="contenedor">
+        <h1>Tus Mascotas</h1>
+        <div class="busqueda">
+            <form action="{% url 'perfil:mascota_list' %}" method="get">
+                <input type="text" name="busqueda" placeholder="Buscar mascota..." class="texto_busqueda">
+            </form>
+        </div>
+        <a href="{% url 'perfil:mascota_create' %}" class="mascota">Registra tu mascota</a>
+        <ul>
+            {% for object in object_list %}
             {% if object.foto %}
-                <img src="{{ object.foto.url }}" alt="Foto de {{ object.nombre }}" width="50" height="">
+            <img src="{{ object.foto.url }}" alt="Foto de {{ object.nombre }}" width="50" height="">
             {% else %}
-                <p>No hay foto disponible</p>
+            <p>No hay foto disponible</p>
             {% endif %}
             <li>{{object.nombre}}</li>
             <div class="crud">
@@ -48,7 +44,8 @@
                 <a href="{% url 'perfil:mascota_update' object.id %}">Editar</a>
                 <a href="{% url 'perfil:mascota_delete' object.id %}">Borrar</a>
             </div>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'perfil:index' %}">Volver</a>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'perfil:index' %}">Volver</a>
+    </main>
 {% endblock content %}

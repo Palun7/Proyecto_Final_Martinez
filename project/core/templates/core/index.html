@@ -15,7 +15,7 @@
         {% if user.is_authenticated %}
             <div class="paginas">
                 <ul class="links">
-                    <li><a href="{% url 'perfil:index' %}">Perfil</a></li>
+                    <a href="{% url 'perfil:index' %}" class="link">Perfil: {{ user.username }}</a>
                 </ul>
             </div>
         {% endif %}
@@ -23,13 +23,15 @@
                 {% if user.is_authenticated %}
                 <form action="{% url 'login:logout' %}" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-dark">Logout</button>
+                    <button type="submit" class="logout">Logout</button>
                 </form>
                 {% else %}
-                    <li><a href="{% url 'login:index' %}">login</a></li>
-                    <li><a href="{% url 'login:singup' %}">Crear Usuario</a></li>
+                    <a href="{% url 'login:index' %}" class="link">login</a>
+                    <a href="{% url 'login:singup' %}" class="link">Crear Usuario</a>
                 {% endif %}
         </div>
     </nav>
-    <h1 class="pawiki">Pawiki</h1>
+    <main class="contenedor">
+        <h1 class="pawiki">Pawiki</h1>
+    </main>
 {% endblock content %}

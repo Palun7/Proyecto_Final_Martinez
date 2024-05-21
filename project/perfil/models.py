@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import date
+from django.utils import timezone
 
 class Raza(models.Model):
     nombre = models.CharField(max_length=100)
@@ -44,19 +45,13 @@ class Mascota(models.Model):
         verbose_name_plural = 'Mascotas'
 
 class Control(models.Model):
-    nombre = models.OneToOneField(Mascota, on_delete=models.CASCADE, unique=True)
+    nombre = models.ForeignKey(Mascota, on_delete=models.CASCADE)
     peso = models.FloatField(verbose_name='Peso (Kg.)', null=True, blank=True)
     vacunas = models.ManyToManyField(Vacunas)
-    ultima_visita_veterinario = models.DateField(null=True,blank=True, verbose_name='Ultima visita al veterinario')
-
-    @property
-    def ultima_visita(self):
-        today = date.today()
-        ultima_visita = today - self.ultima_visita_veterinario # type: ignore
-        return ultima_visita
+    fecha_control = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.nombre}, Ultimo control fue hace: {self.ultima_visita}'
+        return f'{self.nombre}, Fecha control: {self.fecha_control.day}/{self.fecha_control.month}/{self.fecha_control.year}.'
 
     def get_vacunas_str(self):
         return ' / '.join([vacuna.nombre for vacuna in self.vacunas.all()])

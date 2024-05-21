@@ -7,26 +7,17 @@
 {% block content %}
     <nav class="navbar">
         <div class="titulo">
-            <h3><a href="{% url 'core:index' %}">Home</a></h3>
-            {% if user.is_authenticated %}
-                <h5 class="user">{{ user.username }}</h5>
-            {% endif %}
+            <h3><a href="{% url 'core:index' %}" class="link">Home</a></h3>
         </div>
         <div class="login">
-                {% if user.is_authenticated %}
-                <form action="{% url 'login:logout' %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-dark">Logout</button>
-                </form>
-                {% else %}
-                    <li><a href="{% url 'login:index' %}">login</a></li>
-                {% endif %}
+                    <a href="{% url 'login:index' %}" class="link">login</a>
         </div>
     </nav>
-    {% if mensaje %}
+    <main class="contenedor">
+        {% if mensaje %}
         <p>{{ mensaje }}</p>
         <a href="{% url 'login:index' %}"></a>
-    {% else %}
+        {% else %}
         <h1>Crear Usuario</h1>
         <form method="post">
             {% csrf_token %}
@@ -34,5 +25,6 @@
             <input type="hidden" name="next" value="{% url 'login:index' %}">
             <button type="submit">Guardar</button>
         </form>
-    {% endif %}
+        {% endif %}
+    </main>
 {% endblock content %}
