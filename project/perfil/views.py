@@ -1,10 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .forms import VacunasForm, MascotaForm, RazaForm, ControlForm
 from .models import Mascota, Vacunas, Raza, Control
-from django.db.models.query import QuerySet
 from django.urls import reverse_lazy
-from typing import Any
 from django.db.models import Q
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
@@ -100,5 +98,15 @@ class ControlList(LoginRequiredMixin, ListView):
                 Q(nombre__nombre__icontains=busqueda) |
                 Q(peso__icontains=busqueda) |
                 Q(vacunas__nombre__icontains=busqueda)
-            )
+            ).distinct()
         return queryset
+
+class RazaCreate(CreateView):
+    model = Raza
+    form_class= RazaForm
+    success_url = reverse_lazy('perfil:mascota_create')
+
+class VacunasCreate(CreateView):
+    model = Vacunas
+    form_class = VacunasForm
+    success_url = reverse_lazy('perfil:control_create')

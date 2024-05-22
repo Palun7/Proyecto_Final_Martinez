@@ -1,8 +1,7 @@
 {% extends 'core/base.html' %}
-{% load static %}
 
 {% block title %}
-    Detalle de tu mascota
+    Registrar raza
 {% endblock title %}
 
 {% block content %}
@@ -25,25 +24,16 @@
         </div>
     </nav>
     <main class="contenedor">
-        <div class="titulo_detalle">
-            <h1>{{ object.nombre }}</h1>
+        <div class="titulo_registrar">
+            <h1>Registrar raza</h1>
         </div>
-        <ul class="contenedor_detalle">
-            <div class="detalle">
-                <li>Fecha de Nacimiento: {{ object.fecha_nacimiento }}</li>
-                <li>Sexo: {{ object.sexo }}</li>
-                <li>Raza: {{ object.raza }}</li>
-                <li>Color de pelo: {{ object.color_pelo }}</li>
-                <li>{{ object.descripcion}}</li>
-            </div>
-            {% if object.foto %}
-            <img src="{{ object.foto.url }}" alt="Foto de {{ object.nombre }}" width="" height="" class="imagen_detalle">
-            {% else %}
-            <p>No hay foto disponible</p>
-            {% endif %}
-        </ul>
+        <form method="post" enctype="multipart/form-data" class="formulario_mascota">
+            {% csrf_token %}
+            {{ form }}
+                <button type="submit" class="boton_singup">Guardar</button>
+        </form>
         <div class="volver_mascota_contenedor">
-            <a href="{% url 'perfil:mascota_list' %}" class="volver_mascota">Volver</a>
+            <a href="{% url 'perfil:mascota_create' %}" class="volver_mascota">Volver</a>
         </div>
     </main>
 {% endblock content %}

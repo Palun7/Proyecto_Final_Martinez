@@ -30,6 +30,7 @@ class Mascota(models.Model):
     raza = models.ForeignKey(Raza, on_delete=models.SET_NULL,null=True, blank=True, verbose_name='Raza')
     color_pelo = models.CharField(max_length=100, null=True,blank=True, verbose_name='Color de pelo')
     foto = models.ImageField(upload_to='fotos',null=True, blank=True)
+    descripcion = models.TextField(null=True, blank=True, verbose_name=('Descripción'))
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     @property

@@ -36,6 +36,9 @@
             {{ form }}
             <button type="submit" class="boton_control">Guardar</button>
         </form>
+        <div class="crear_vacunas_contenedor">
+            <a href="{% url 'perfil:vacunas_create' %}" class="crear_vacunas">Registrar vacuna</a>
+        </div>
         <div class="volver_mascota_contenedor">
             <a href="{% url 'perfil:control_list' %}" class="volver_mascota">Volver</a>
         </div>

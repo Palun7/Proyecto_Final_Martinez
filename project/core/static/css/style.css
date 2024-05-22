@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
 * {
     padding: 0;
     margin: 0;
+    font-family: "Quicksand", sans-serif;
 }
 
 .contenedor {
     display: grid;
     grid-template-columns: repeat(20, 5vw);
-    grid-template-rows: repeat(20, 5vh);
-    min-height: 92.9vh;
+    grid-template-rows: repeat(18, 5vh);
+    min-height: 92.75vh;
     background-color: rgb(204, 240, 255);
 }
 
@@ -289,6 +292,7 @@
     grid-column-start: 9;
     grid-column-end: 12;
     grid-row-start: 2;
+    font-size: 2.5rem;
 }
 
 .link_mascota_perfil {
@@ -305,6 +309,7 @@
     padding: 3px;
     border-radius: 5px;
     transition-duration: .2s;
+    font-size: 1.5rem;
 }
 
 .mascota_perfil:hover {
@@ -327,6 +332,7 @@
     padding: 3px;
     border-radius: 5px;
     transition-duration: .2s;
+    font-size: 1.5rem;
 }
 
 .control_perfil:hover {
@@ -369,6 +375,33 @@
     grid-row-start: 1;
 }
 
+.contenedor_boton_mascota {
+    display: grid;
+    align-content: end;
+    justify-content: center;
+}
+
+.boton_mascota {
+    padding: 3px;
+    background: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+    transition-duration: .3s;
+    width: 120px;
+    height: 40px;
+    transition-duration: .2s;
+}
+
+.boton_mascota:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(0, 216, 254);
+    transition-duration: .3s;
+}
+
 .crud_mascota {
     grid-row-start: 3;
     grid-column-start: span 2;
@@ -398,7 +431,7 @@
     border-radius: 5px;
     padding: 3px;
     transition-duration: .2s;
-    margin-left: 12px;
+    margin-left: 5px;
 }
 
 .mascota_editar:hover {
@@ -413,7 +446,7 @@
     border: .5px solid black ;
     border-radius: 5px;
     padding: 3px;
-    margin-left: 12px;
+    margin-left: 5px;
 }
 
 .mascota_borrar:hover {
@@ -486,18 +519,18 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
-    grid-column-start: 8;
-    grid-column-end: 12;
+    grid-column-start: 7;
+    grid-column-end: 13;
     grid-row-start: 5;
 }
 
 .titulo_registrar {
     display: flex;
-    justify-content: center;
     grid-row-start: 3;
     grid-column-start: 8;
-    grid-column-end: 12;
+    grid-column-end: 13;
     color: rgb(0, 0, 0);
+    margin-left: 2rem;
 }
 
 .formulario_control {
@@ -546,15 +579,25 @@
 
 .contenedor_detalle {
     display: grid;
+    grid-template-rows: repeat(5, 1fr);
     gap: 1rem;
-    grid-column-start: 8;
-    grid-column-end: 12;
+    grid-column-start: 6;
+    grid-column-end: 16;
     grid-row-start: 4;
+}
+
+.detalle {
+    display: flex;
+    flex-flow: column;
+    row-gap: 3rem;
+    grid-column-start: 1;
 }
 
 .imagen_detalle {
     width: 500px;
     border-radius: 10px;
+    grid-column-start: 2;
+    grid-row-start: 1;
 }
 
 .pregunta_borrar {
@@ -592,6 +635,50 @@
     transition-duration: .3s;
 }
 
+.crear_raza_contenedor {
+    grid-column-start: 13;
+    grid-column-end: 15;
+    grid-row-start: 6;
+    align-content: center;
+}
+
+.crear_raza {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    transition-duration: .2s;
+}
+
+.crear_raza:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(0, 216, 254);
+    transition-duration: .3s;
+}
+
+.crear_vacunas_contenedor {
+    grid-column-start: 12;
+    grid-column-end: 14;
+    grid-row-start: 7;
+    align-content: center;
+}
+
+.crear_vacunas {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    transition-duration: .2s;
+}
+
+.crear_vacunas:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(0, 216, 254);
+    transition-duration: .3s;
+}
+
 
 
 
@@ -599,7 +686,94 @@
 /* control */
 
 .fecha_control {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
 
+.control_detalle {
+    text-decoration: none;
+    color: black;
+    border: .5px solid black ;
+    border-radius: 5px;
+    padding: 3px;
+    transition-duration: .2s;
+}
+
+.control_detalle:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(0, 216, 254);
+    transition-duration: .3s;
+}
+
+.control_editar {
+    text-decoration: none;
+    color: black;
+    border: .5px solid black ;
+    border-radius: 5px;
+    padding: 3px;
+    transition-duration: .2s;
+    margin-left: 5px;
+}
+
+.control_editar:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(35, 173, 0);
+    transition-duration: .3s;
+}
+
+.control_borrar {
+    text-decoration: none;
+    color: black;
+    border: .5px solid black ;
+    border-radius: 5px;
+    padding: 3px;
+    margin-left: 5px;
+}
+
+.control_borrar:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(167, 0, 0);
+    transition-duration: .3s;
+}
+
+.control_list_completo {
+    display: grid;
+    gap: 1rem;
+    grid-row-start: 4;
+    grid-column-start: span 3;
+}
+
+.control_list {
+    display: grid;
+    grid-template-rows: 2fr 1fr 1fr 1fr;
+    align-items: center;
+    width: 200px;
+    height: 130px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px;
+    margin: .5rem;
+}
+
+.nombre_control {
+    font-size: 1.5rem;
+    grid-row-start: 1;
+}
+
+.busqueda_control {
+    grid-column-start: 12;
+    grid-column-end: 16;
+    grid-row-start: 2;
+    align-content: center;
+}
+
+.texto_busqueda_control {
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    height: 30px;
+    width: 300px;
+    padding-left: 10px;
 }
 
 
@@ -613,4 +787,37 @@
     min-width: 100vw;
     background-color: rgb(22, 110, 0);
     column-gap: 3rem;
+}
+
+.contacto {
+    margin-left: 1rem;
+    font-weight: bold;
+}
+
+.instagram {
+    transition-duration: .5s;
+    cursor: pointer;
+}
+
+.instagram:hover {
+    scale: 1.2;
+}
+
+.facebook {
+    transition-duration: .5s;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.facebook:hover {
+    scale: 1.2;
+}
+
+.github {
+    transition-duration: .5s;
+    cursor: pointer;
+}
+
+.github:hover {
+    scale: 1.2;
 }

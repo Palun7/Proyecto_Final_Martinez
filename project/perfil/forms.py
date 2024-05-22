@@ -20,7 +20,7 @@ class VacunasForm(forms.ModelForm):
 class MascotaForm(forms.ModelForm):
     class Meta:
         model= Mascota
-        fields = ['nombre', 'fecha_nacimiento', 'sexo', 'raza', 'color_pelo', 'foto']
+        fields = ['nombre', 'fecha_nacimiento', 'sexo', 'raza', 'color_pelo', 'foto', 'descripcion']
 
 class RazaForm(forms.ModelForm):
     class Meta:

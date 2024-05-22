@@ -34,8 +34,13 @@
         <form method="post" enctype="multipart/form-data" class="formulario_mascota">
             {% csrf_token %}
             {{ form }}
-                <button type="submit" class="boton_singup">Guardar</button>
+            <div class="contenedor_boton_mascota">
+                <button type="submit" class="boton_mascota">Guardar</button>
+            </div>
         </form>
+        <div class="crear_raza_contenedor">
+            <a href="{% url 'perfil:raza_create' %}" class="crear_raza">Registrar raza</a>
+        </div>
         <div class="volver_mascota_contenedor">
             <a href="{% url 'perfil:mascota_list' %}" class="volver_mascota">Volver</a>
         </div>

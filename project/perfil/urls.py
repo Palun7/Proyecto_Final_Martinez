@@ -11,7 +11,9 @@ from .views import (
     ControlCreate,
     ControlDelete,
     ControlDetail,
-    ControlUpdate
+    ControlUpdate,
+    RazaCreate,
+    VacunasCreate,
 )
 app_name = 'perfil'
 
@@ -33,4 +35,9 @@ urlpatterns += [
     path('perfil/control/update/<int:pk>', ControlUpdate.as_view(), name='control_update'),
     path('perfil/control/delete/<int:pk>', ControlDelete.as_view(), name='control_delete'),
     path('perfil/control/detail/<int:pk>', ControlDetail.as_view(), name='control_detail'),
+]
+
+urlpatterns += [
+    path('perfil/raza/create', RazaCreate.as_view(), name='raza_create'),
+    path('perfil/vacunas/create', VacunasCreate.as_view(), name='vacunas_create'),
 ]
