@@ -25,20 +25,22 @@
         </div>
     </nav>
     <main class="contenedor">
-        <ul>
-            <li>Nombre: {{ object.nombre }}</li>
+        <div class="titulo_detalle">
+            <h1>{{ object.nombre }}</h1>
+        </div>
+        <ul class="contenedor_detalle">
             <li>Fecha de Nacimiento: {{ object.fecha_nacimiento }}</li>
             <li>Sexo: {{ object.sexo }}</li>
             <li>Raza: {{ object.raza }}</li>
             <li>Color de pelo: {{ object.color_pelo }}</li>
             {% if object.foto %}
-            <img src="{{ object.foto.url }}" alt="Foto de {{ object.nombre }}" width="200" height="">
+            <img src="{{ object.foto.url }}" alt="Foto de {{ object.nombre }}" width="" height="" class="imagen_detalle">
             {% else %}
             <p>No hay foto disponible</p>
             {% endif %}
         </ul>
-        <div>
-            <a href="{% url 'perfil:mascota_list' %}">Volver</a>
+        <div class="volver_mascota_contenedor">
+            <a href="{% url 'perfil:mascota_list' %}" class="volver_mascota">Volver</a>
         </div>
     </main>
 {% endblock content %}

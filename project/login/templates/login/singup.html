@@ -15,16 +15,21 @@
     </nav>
     <main class="contenedor">
         {% if mensaje %}
-        <p>{{ mensaje }}</p>
-        <a href="{% url 'login:index' %}"></a>
+        <p class="mensaje_singup">{{ mensaje }}</p>
         {% else %}
-        <h1>Crear Usuario</h1>
-        <form method="post">
+        <h1 class="titulo_login">Crear Usuario</h1>
+        <form method="post" class="formulario_singup">
             {% csrf_token %}
             {{form}}
             <input type="hidden" name="next" value="{% url 'login:index' %}">
-            <button type="submit">Guardar</button>
+            <div class="boton_singup_contenedor">
+                <button type="submit" class="boton_singup">Guardar</button>
+            </div>
         </form>
         {% endif %}
+        <div class="volver_mascota_contenedor">
+            <a href="{% url 'core:index' %}" class="volver_mascota">Volver</a>
+        </div>
     </main>
+    
 {% endblock content %}

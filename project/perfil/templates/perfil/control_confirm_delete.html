@@ -27,13 +27,13 @@
         </div>
     </nav>
     <main class="contenedor">
-        <p>¿Confirma borrar el control médico de {{ object.nombre }}?</p>
-        <form method="post">
+        <p class="pregunta_borrar">¿Confirma eliminar el control médico de {{ object.nombre }}?</p>
+        <form method="post" class="form_borrar">
             {% csrf_token %}
-            <button type="submit">Eliminar</button>
+            <button type="submit" class="boton_borrar">Eliminar</button>
         </form>
-        <div>
-            <a href="{% url 'perfil:control_list' %}">Volver</a>
+        <div class="volver_mascota_contenedor">
+            <a href="{% url 'perfil:control_list' %}" class="volver_mascota">Volver</a>
         </div>
     </main>
 {% endblock content %}

@@ -24,27 +24,33 @@
         </div>
     </nav>
     <main class="contenedor">
-        <h1>Controles médicos</h1>
+        <h1 class="titulo_core">Controles médicos</h1>
         <div class="busqueda">
-            <form action="{% url 'perfil:mascota_list' %}" method="get">
+            <form action="{% url 'perfil:control_list' %}" method="get">
                 <input type="text" name="busqueda" placeholder="Buscar mascota..." class="texto_busqueda">
             </form>
         </div>
-        <a href="{% url 'perfil:control_create' %}" class="mascota">Registra un control médico</a>
-        <ul>
-            {% for object in object_list %}
-            {% if object.nombre.foto %}
-            <img src="{{ object.nombre.foto.url }}" alt="Foto de {{ object.nombre }}" width="50" height="">
-            {% endif %}
-            <li>Control de {{object.nombre}}</li>
-            <li>Fecha: {{ object.fecha_control.day }}/{{ object.fecha_control.month }}/{{ object.fecha_control.year }}</li>
-            <div class="crud">
-                <a href="{% url 'perfil:control_detail' object.id %}">Detalles</a>
-                <a href="{% url 'perfil:control_update' object.id %}">Editar</a>
-                <a href="{% url 'perfil:control_delete' object.id %}">Borrar</a>
-            </div>
-            {% endfor %}
-        </ul>
-        <a href="{% url 'perfil:index' %}">Volver</a>
+        <div class="contenedor_registrar_mascota">
+            <a href="{% url 'perfil:control_create' %}" class="registrar_mascota">Registra un control médico</a>
+        </div>
+        {% for object in object_list %}
+            <ul class="mascota_list_completo">
+                <div class="mascota_list">
+                    {% if object.nombre.foto %}
+                    <img src="{{ object.nombre.foto.url }}" alt="Foto de {{ object.nombre }}" width="50" height="">
+                    {% endif %}
+                    <p class="nombre_mascota">Control de {{object.nombre}}</p>
+                    <p class="fecha_control">Fecha: {{ object.fecha_control.day }}/{{ object.fecha_control.month }}/{{ object.fecha_control.year }}</p>
+                    <div class="crud_mascota">
+                        <a href="{% url 'perfil:control_detail' object.id %}" class="mascota_detalle">Detalles</a>
+                        <a href="{% url 'perfil:control_update' object.id %}" class="mascota_editar">Editar</a>
+                        <a href="{% url 'perfil:control_delete' object.id %}" class="mascota_borrar">Borrar</a>
+                    </div>
+                </div>
+            </ul>
+        {% endfor %}
+        <div class="volver_mascota_contenedor">
+            <a href="{% url 'perfil:index' %}" class="volver_mascota">Volver</a>
+        </div>
     </main>
 {% endblock content %}

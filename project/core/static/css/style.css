@@ -5,9 +5,15 @@
 
 .contenedor {
     display: grid;
+    grid-template-columns: repeat(20, 5vw);
+    grid-template-rows: repeat(20, 5vh);
     min-height: 92.9vh;
     background-color: rgb(204, 240, 255);
 }
+
+
+
+
 
 /* navbar */
 
@@ -58,6 +64,7 @@
     display: flex;
     gap: 2rem;
     align-items: center;
+    margin-left: 2rem;
 }
 
 .logout {
@@ -82,11 +89,522 @@
     background-color: rgb(35, 173, 0);
 }
 
+.user {
+    font-size: 1.5rem;
+    margin-left: 2rem;
+}
+
+.imagen_patita {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    margin-left: 1rem;
+}
+
+.patita {
+    width: 30px;
+}
+
+
+
+
+
+/* core */
+
+.titulo_core {
+    grid-column-start: 8;
+    grid-column-end: 12;
+    grid-row-start: 2;
+    font-size: 2rem;
+    align-content: center;
+}
+
+.titulo_index {
+    grid-column-start: 9;
+    grid-column-end: 11;
+    grid-row-start: 3;
+    font-size: 3rem;
+    text-decoration: underline;
+}
+
+
+
+
+
 /* login */
 
 .titulo_login {
-    color: rgb(42, 196, 235);
+    grid-row-start: 3;
+    grid-column-start: 8;
+    grid-column-end: 12;
+    color: rgb(0, 0, 0);
 }
+
+.formulario_login {
+    display: flex;
+    flex-flow: column;
+    row-gap: 10px;
+    grid-row-start: 5;
+    grid-column-start: 8;
+}
+
+.boton_login_contenedor {
+    display: flex;
+    justify-content: start;
+}
+
+.boton_login {
+    padding: 3px;
+    background: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+    transition-duration: .3s;
+    width: 120px;
+    transition-duration: .2s;
+
+}
+
+.boton_login:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(35, 173, 0);
+    transition-duration: .3s;
+}
+
+.singup_contenedor {
+    grid-row-start: 10;
+    grid-column-start: 8;
+    grid-column-end: 12;
+    align-content: end;
+}
+
+.singup {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    box-sizing: content-box;
+    padding: 3px;
+    border-radius: 5px;
+    transition-duration: .2s;
+    font-size: 1.5rem;
+}
+
+.singup:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(0, 216, 254);
+    transition-duration: .3s;
+}
+
+.mensaje_singup {
+    grid-column-start: 8;
+    grid-column-end: 12;
+    grid-row-start: 4;
+    font-size: 2.5rem;
+}
+
+.volver_singup {
+    grid-column-start: 8;
+    grid-column-end: 12;
+    grid-row-start: 4;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    box-sizing: content-box;
+    padding: 3px;
+    border-radius: 5px;
+    transition-duration: .2s;
+    font-size: 1.5rem;
+}
+
+.volver_singup:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(35, 173, 0);
+    transition-duration: .3s;
+}
+
+.formulario_singup {
+    grid-column-start: 8;
+    grid-column-end: 12;
+    grid-row-start: 5;
+    grid-row-end: 10;
+    display: grid;
+    row-gap: 5px;
+}
+
+.boton_singup {
+    padding: 3px;
+    background: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 10px;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+    transition-duration: .3s;
+    width: 120px;
+    transition-duration: .2s;
+
+}
+
+.boton_singup:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(0, 216, 254);
+    transition-duration: .3s;
+}
+
+.logout_contenedor {
+    display: grid;
+    row-gap: 2rem;
+    justify-content: center;
+    grid-row-start: 4;
+    grid-column-start: 8;
+    grid-column-end: 12;
+}
+
+.despedida_contenedor {
+    display: grid;
+    justify-content: center;
+    align-content: end;
+}
+
+.sesion_cerrada {
+    font-size: 2.5rem;
+}
+
+.despedida {
+    font-size: 1.5rem;
+}
+
+
+
+
+
+/* perfil */
+
+.user_perfil {
+    grid-column-start: 9;
+    grid-column-end: 12;
+    grid-row-start: 2;
+}
+
+.link_mascota_perfil {
+    grid-column-start: 6;
+    grid-column-end: 10;
+    grid-row-start: 4;
+}
+
+.mascota_perfil {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    box-sizing: content-box;
+    padding: 3px;
+    border-radius: 5px;
+    transition-duration: .2s;
+}
+
+.mascota_perfil:hover {
+    background-color: rgb(80, 80, 80);
+    color: aquamarine;
+    transition-duration: .3s;
+}
+
+.link_control_perfil {
+    grid-column-start: 13;
+    grid-column-end: 16;
+    grid-row-start: 4;
+}
+
+.control_perfil {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    box-sizing: content-box;
+    padding: 3px;
+    border-radius: 5px;
+    transition-duration: .2s;
+}
+
+.control_perfil:hover {
+    background-color: rgb(80, 80, 80);
+    color: aquamarine;
+    transition-duration: .3s;
+}
+
+
+
+
+
+/* mascota */
+
+.mascota_list_completo {
+    display: grid;
+    gap: 1rem;
+    grid-row-start: 4;
+    grid-column-start: span 3;
+}
+
+.mascota_list {
+    display: grid;
+    align-items: center;
+    width: 200px;
+    height: 130px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px;
+    margin: .5rem;
+}
+
+.foto_mascota {
+    grid-column-start: 2;
+    width: 60px;
+}
+
+.nombre_mascota {
+    font-size: 2rem;
+    grid-row-start: 1;
+}
+
+.crud_mascota {
+    grid-row-start: 3;
+    grid-column-start: span 2;
+    justify-content: center;
+    margin-left: 5px;
+}
+
+.mascota_detalle {
+    text-decoration: none;
+    color: black;
+    border: .5px solid black ;
+    border-radius: 5px;
+    padding: 3px;
+    transition-duration: .2s;
+}
+
+.mascota_detalle:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(0, 216, 254);
+    transition-duration: .3s;
+}
+
+.mascota_editar {
+    text-decoration: none;
+    color: black;
+    border: .5px solid black ;
+    border-radius: 5px;
+    padding: 3px;
+    transition-duration: .2s;
+    margin-left: 12px;
+}
+
+.mascota_editar:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(35, 173, 0);
+    transition-duration: .3s;
+}
+
+.mascota_borrar {
+    text-decoration: none;
+    color: black;
+    border: .5px solid black ;
+    border-radius: 5px;
+    padding: 3px;
+    margin-left: 12px;
+}
+
+.mascota_borrar:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(167, 0, 0);
+    transition-duration: .3s;
+}
+
+.busqueda {
+    grid-column-start: 11;
+    grid-column-end: 15;
+    grid-row-start: 2;
+    align-content: center;
+}
+
+.texto_busqueda {
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    height: 30px;
+    width: 300px;
+    padding-left: 10px;
+}
+
+.contenedor_registrar_mascota {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 2;
+    align-content: center;
+}
+
+.registrar_mascota {
+    text-decoration: none;
+    color: black;
+    border: .5px solid black ;
+    border-radius: 5px;
+    padding: 5px;
+    height: 20px;
+    transition-duration: .2s;
+}
+
+.registrar_mascota:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(35, 173, 0);
+    transition-duration: .3s;
+}
+
+.volver_mascota_contenedor {
+    grid-column-start: 19;
+    grid-row-start: 2;
+    align-content: center;
+}
+
+.volver_mascota {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    transition-duration: .2s;
+}
+
+.volver_mascota:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(35, 173, 0);
+    transition-duration: .3s;
+}
+
+.formulario_mascota {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    grid-column-start: 8;
+    grid-column-end: 12;
+    grid-row-start: 5;
+}
+
+.titulo_registrar {
+    display: flex;
+    justify-content: center;
+    grid-row-start: 3;
+    grid-column-start: 8;
+    grid-column-end: 12;
+    color: rgb(0, 0, 0);
+}
+
+.formulario_control {
+    display: grid;
+    gap: 1rem;
+    grid-column-start: 9;
+    grid-column-end: 12;
+    grid-row-start: 5;
+}
+
+.boton_control {
+    padding: 3px;
+    background: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 10px;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+    transition-duration: .3s;
+    width: 120px;
+    height: 30px;
+    transition-duration: .2s;
+}
+
+.boton_control:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(0, 216, 254);
+    transition-duration: .3s;
+}
+
+.titulo_detalle {
+    grid-column-start: 10;
+    grid-column-end: 12;
+    grid-row-start: 2;
+    text-decoration: underline black;
+}
+
+.titulo_detalle_control {
+    grid-column-start: 9;
+    grid-column-end: 12;
+    grid-row-start: 2;
+    text-decoration: underline black;
+}
+
+.contenedor_detalle {
+    display: grid;
+    gap: 1rem;
+    grid-column-start: 8;
+    grid-column-end: 12;
+    grid-row-start: 4;
+}
+
+.imagen_detalle {
+    width: 500px;
+    border-radius: 10px;
+}
+
+.pregunta_borrar {
+    grid-column-start: 8;
+    grid-column-end: 12;
+    grid-row-start: 3;
+    font-size: 2.2rem;
+}
+
+.form_borrar {
+    grid-column-start: 9;
+    grid-column-end: 12;
+    grid-row-start: 6;
+}
+
+.boton_borrar {
+    padding: 3px;
+    background: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 10px;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+    transition-duration: .3s;
+    width: 120px;
+    height: 30px;
+    transition-duration: .2s;
+}
+
+.boton_borrar:hover {
+    background-color: rgb(105, 104, 104);
+    color: rgb(167, 0, 0);
+    transition-duration: .3s;
+}
+
+
+
+
+
+/* control */
+
+.fecha_control {
+
+}
+
+
+
+
 
 /* footer */
 

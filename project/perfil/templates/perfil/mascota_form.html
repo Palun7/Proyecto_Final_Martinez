@@ -28,13 +28,16 @@
         </div>
     </nav>
     <main class="contenedor">
-        <form method="post" enctype="multipart/form-data">
+        <div class="titulo_registrar">
+            <h1>Registrar mascota</h1>
+        </div>
+        <form method="post" enctype="multipart/form-data" class="formulario_mascota">
             {% csrf_token %}
             {{ form }}
-            <button type="submit">Guardar</button>
+                <button type="submit" class="boton_singup">Guardar</button>
         </form>
-        <div>
-            <a href="{% url 'perfil:mascota_list' %}">Volver</a>
+        <div class="volver_mascota_contenedor">
+            <a href="{% url 'perfil:mascota_list' %}" class="volver_mascota">Volver</a>
         </div>
     </main>
 {% endblock content %}

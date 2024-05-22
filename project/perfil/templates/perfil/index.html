@@ -18,8 +18,8 @@
         </div>
     </nav>
     <main class="contenedor">
-        <h1>{{ user.username }}</h1>
-        <a href="{% url 'perfil:mascota_list' %}" class="mascota">Ver tus mascotas</a>
-        <a href="{% url 'perfil:control_list' %}" class="mascota">Ver controles médicos</a>
+        <h1 class="user_perfil">Perfil: {{ user.username }}</h1>
+        <p class="link_mascota_perfil"><a href="{% url 'perfil:mascota_list' %}" class="mascota_perfil">Ver tus mascotas</a></p>
+        <p class="link_control_perfil"><a href="{% url 'perfil:control_list' %}" class="control_perfil">Ver controles médicos</a></p>
     </main>
 {% endblock content %}

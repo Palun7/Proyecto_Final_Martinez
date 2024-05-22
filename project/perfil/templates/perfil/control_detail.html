@@ -25,14 +25,17 @@
         </div>
     </nav>
     <main class="contenedor">
-        <ul>
-            <li>Nombre: {{ object.nombre }}</li>
+        <div class="titulo_detalle_control">
+            <h1>{{ object.nombre }}</h1>
+        </div>
+        <ul class="contenedor_detalle">
             <li>Peso: {{ object.peso }} Kg.</li>
             <li>Vacunas: {{ vacunas }}</li>
             <li>Fecha del control: {{ object.fecha_control.day }}/{{ object.fecha_control.month }}/{{ object.fecha_control.year }}</li>
+            <img src="{{ object.nombre.foto.url }}" alt="Foto de {{ object.nombre }}" width="" height="" class="imagen_detalle">
         </ul>
-        <div>
-            <a href="{% url 'perfil:control_list' %}">Volver</a>
+        <div class="volver_mascota_contenedor">
+            <a href="{% url 'perfil:control_list' %}" class="volver_mascota">Volver</a>
         </div>
     </main>
         {% endblock content %}

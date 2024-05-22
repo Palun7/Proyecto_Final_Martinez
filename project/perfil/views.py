@@ -20,7 +20,7 @@ from django.views.generic import (
 def index(request):
     return render(request, 'perfil/index.html', {'user': request.user})
 
-class MascotaCreate(CreateView):
+class MascotaCreate(CreateView, LoginRequiredMixin):
     model = Mascota
     form_class= MascotaForm
     success_url = reverse_lazy('perfil:mascota_list')
@@ -44,7 +44,6 @@ class MascotaDelete(DeleteView):
 class MascotaList(LoginRequiredMixin, ListView):
     model = Mascota
     context_object_name = 'mascotas'
-    login_url = 'login/index.html'
 
     def get_queryset(self):
         queryset = Mascota.objects.filter(user=self.request.user)
@@ -53,12 +52,12 @@ class MascotaList(LoginRequiredMixin, ListView):
             queryset = queryset.filter(
                 Q(nombre__icontains=busqueda) |
                 Q(sexo__icontains=busqueda) |
-                Q(raza__icontains=busqueda) |
+                Q(raza__nombre__icontains=busqueda) |
                 Q(color_pelo__icontains=busqueda)
             )
         return queryset
 
-class ControlCreate(CreateView):
+class ControlCreate(CreateView, LoginRequiredMixin):
     model = Control
     form_class= ControlForm
     success_url = reverse_lazy('perfil:control_list')
@@ -92,15 +91,14 @@ class ControlDelete(DeleteView):
 class ControlList(LoginRequiredMixin, ListView):
     model = Control
     context_object_name = 'controles'
-    login_url = 'login/index.html'
 
     def get_queryset(self):
         queryset = Control.objects.filter(user=self.request.user)
         busqueda = self.request.GET.get("busqueda")
         if busqueda:
             queryset = queryset.filter(
-                Q(nombre__icontains=busqueda) |
+                Q(nombre__nombre__icontains=busqueda) |
                 Q(peso__icontains=busqueda) |
-                Q(vacunas__icontains=busqueda)
+                Q(vacunas__nombre__icontains=busqueda)
             )
         return queryset
