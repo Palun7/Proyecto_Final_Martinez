@@ -4,7 +4,7 @@ from .models import Control, Vacunas, Mascota, Raza
 class ControlForm(forms.ModelForm):
     class Meta:
         model = Control
-        fields = ['nombre', 'peso', 'vacunas']
+        fields = ['nombre', 'peso', 'vacunas', 'castrado', 'descripcion']
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)

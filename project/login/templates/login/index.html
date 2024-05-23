@@ -24,7 +24,7 @@
         </div>
     </nav>
     <main class="contenedor">
-        <h1 class="titulo_login">Iniciar Sesion</h1>
+        <h1 class="titulo_login_1">Iniciar Sesion</h1>
         <form method="post" class="formulario_login">
             {% csrf_token %}
             {{ form }}
@@ -33,9 +33,10 @@
                 <button type="submit" class="boton_login">Iniciar Sesión</button>
             </div>
         </form>
-        <p class="singup_contenedor">
+        <div class="singup_contenedor">
+            <p class="text_singup">Si no estas registrado</p>
             <a href="{% url 'login:singup' %}" class="singup">Crear Usuario</a>
-        </p>
+        </div>
         <div class="volver_mascota_contenedor">
             <a href="{% url 'core:index' %}" class="volver_mascota">Volver</a>
         </div>

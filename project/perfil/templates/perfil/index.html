@@ -21,5 +21,7 @@
         <h1 class="user_perfil">Perfil: {{ user.username }}</h1>
         <p class="link_mascota_perfil"><a href="{% url 'perfil:mascota_list' %}" class="mascota_perfil">Ver tus mascotas</a></p>
         <p class="link_control_perfil"><a href="{% url 'perfil:control_list' %}" class="control_perfil">Ver controles médicos</a></p>
+        <p class="link_cambio_nombre"><a href="{% url 'login:update_username' %}" class="cambio_nombre">Cambiar nombre de usuario</a></p>
+        <p class="link_cambio_contraseña"><a href="{% url 'login:update_password' %}" class="cambio_contraseña">Cambiar contraseña</a></p>
     </main>
 {% endblock content %}

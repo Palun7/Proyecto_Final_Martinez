@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Inicio
+    Sobre mi
 {% endblock title %}
 
 {% block content %}
@@ -28,7 +28,17 @@
         </div>
     </nav>
     <main class="contenedor">
-        <h1 class="titulo_index">Pawiki</h1>
-        <p class="contenedor_sobre_mi"><a href="{% url 'core:sobre_mi' %}" class="sobre_mi">Sobre mi</a></p>
+        <h1 class="titulo_index">Palun</h1>
+        <p class="texto_sobre_mi">
+            Mi nombre es Pablo Martinez, apodo "Palun", soy profesor de educación física y apacionado de la tecnología. 
+            En febrero del corriente año (2024) me propuse a hacer una tarea que tenia pendiente, la cual era aprender a programar.
+        </p>
+        <div class="foto_contacto">
+            <img src="{% static 'img/sobre_mi.jpg' %}" alt="" width="" height="" class="mi_foto">
+            <p class="texto_contacto">Contacto</p>
+        </div>
+        <div class="volver_mascota_contenedor">
+            <a href="{% url 'core:index' %}" class="volver_mascota">Volver</a>
+        </div>
     </main>
 {% endblock content %}

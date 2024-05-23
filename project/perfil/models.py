@@ -50,6 +50,8 @@ class Control(models.Model):
     nombre = models.ForeignKey(Mascota, on_delete=models.CASCADE)
     peso = models.FloatField(verbose_name='Peso (Kg.)', null=True, blank=True)
     vacunas = models.ManyToManyField(Vacunas)
+    castrado = models.BooleanField(default=False)
+    descripcion = models.TextField(null=True, blank=True, verbose_name=('Descripción'))
     fecha_control = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
