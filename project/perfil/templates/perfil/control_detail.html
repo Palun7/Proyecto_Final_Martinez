@@ -50,5 +50,36 @@
         <div class="volver_mascota_contenedor">
             <a href="{% url 'perfil:control_list' %}" class="volver_mascota">Volver</a>
         </div>
+        <div class="copiar_enlace_control">
+            <label for="enlace-detalle">Comparti los datos:</label>
+            <input type="text" id="enlace-detalle" value="{{ request.build_absolute_uri }}" readonly>
+            <button onclick="copiarEnlace()" class="boton_copiar">Copiar enlace</button>
+            <p id="mensaje" class="mensaje-copiado">¡Enlace copiado!</p>
+        </div>
+        <div class="volver_mascota_contenedor">
+            <a href="{% url 'perfil:mascota_list' %}" class="volver_mascota">Volver</a>
+        </div>
     </main>
+    <script>
+        function copiarEnlace() {
+            // Obtener el campo de texto
+            var enlace = document.getElementById("enlace-detalle");
+
+            // Seleccionar el texto en el campo de texto
+            enlace.select();
+            enlace.setSelectionRange(0, 99999); // Para dispositivos móviles
+
+            // Copiar el texto al portapapeles
+            document.execCommand("copy");
+
+            // Mostrar mensaje de éxito
+            var mensaje = document.getElementById("mensaje");
+            mensaje.style.display = "block";
+
+            // Ocultar el mensaje después de 2 segundos
+            setTimeout(function() {
+                mensaje.style.display = "none";
+            }, 2000);
+        }
+    </script>
         {% endblock content %}

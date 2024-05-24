@@ -987,6 +987,45 @@
     transition-duration: .3s;
 }
 
+.copiar_enlace {
+    grid-column: 10/13;
+    grid-row-start: -3;
+}
+
+.copiar_enlace_control {
+    grid-column: 9/12;
+    grid-row-start: -3;
+}
+
+.mensaje-copiado {
+    display: none;
+    color: green;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.boton_copiar {
+    padding: 3px;
+    background: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 10px;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+    transition-duration: .3s;
+    width: 120px;
+    height: 30px;
+    transition-duration: .2s;
+}
+
+.boton_copiar:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(0, 216, 254);
+    transition-duration: .3s;
+}
+
 
 
 
