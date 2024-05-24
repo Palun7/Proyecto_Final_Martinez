@@ -34,6 +34,10 @@
                 <li>Sexo: {{ object.sexo }}</li>
                 <li>Raza: {{ object.raza }}</li>
                 <li>Color de pelo: {{ object.color_pelo }}</li>
+                <li>Alimento: {{ object.alimento }}</li>
+                {% if object.datos_importantes %}
+                <li>Datos importantes: {{ object.datos_importantes }}</li>
+                {% endif %}
                 <li>{{ object.descripcion}}</li>
             </div>
             {% if object.foto %}
