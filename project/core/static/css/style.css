@@ -178,7 +178,7 @@
 .mi_foto {
     width: 400px;
     border-radius: 7px;
-    grid-row: 1/5;
+    grid-row: 1/8;
     grid-column-start: 1;
 }
 
@@ -187,6 +187,171 @@
     grid-row-start: 2;
     text-decoration: underline;
 }
+
+.github_core {
+    grid-row-start: 3;
+    display: flex;
+    justify-content: center;
+    margin-right: 5px;
+    transition-duration: .3s;
+}
+
+.github_core:hover {
+    scale: 1.1;
+    transform: translateY(-3px) ;
+}
+
+.instagram_core {
+    grid-row-start: 6;
+    display: flex;
+    justify-content: center;
+    margin-right: 5px;
+    transition-duration: .3s;
+}
+
+.instagram_core:hover {
+    transform: translateY(-3px) ;
+    scale: 1.1;
+}
+
+.facebook_core {
+    grid-row-start: 7;
+    display: flex;
+    justify-content: center;
+    margin-right: 5px;
+    transition-duration: .3s;
+}
+
+.facebook_core:hover {
+    transform: translateY(-3px) ;
+    scale: 1.1;
+}
+
+.linkedin_core {
+    grid-row-start: 4;
+    display: flex;
+    justify-content: center;
+    margin-right: 5px;
+    transition-duration: .3s;
+}
+
+.linkedin_core:hover {
+    transform: translateY(-3px) ;
+    scale: 1.1;
+}
+
+.whatsapp_core {
+    grid-row-start: 5;
+    display: flex;
+    justify-content: center;
+    margin-right: 5px;
+    transition-duration: .3s;
+}
+
+.whatsapp_core:hover {
+    transform: translateY(-3px) ;
+    scale: 1.1;
+}
+
+.contenedor_galeria {
+    min-height: 92vh;
+    display: flex;
+    flex-flow: column wrap;
+    background-color: rgb(204, 240, 255);
+
+}
+
+.contenedor_galeria_fotos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    order: 1;
+    padding: 20px;
+    gap: 30px;
+}
+
+.contenedor_fotos {
+    display: grid;
+    justify-content: center;
+    width: 450px;
+    height: 370px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 1px black;
+    background-color: rgb(217, 217, 217);
+}
+
+.contenedor_nombre_foto {
+    display: flex;
+    justify-content: center;
+}
+
+.nombre_foto {
+    font-size: 1.5rem;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.foto_galeria {
+    height: 300px;
+    border-radius: 5px;
+}
+
+.contenedor_titulo_galeria {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    grid-column-start: span 18;
+    grid-row-start: span 3;
+    padding-top: 20px;
+}
+
+.titulo_galeria {
+    text-decoration: underline;
+}
+
+.contenedor_volver_galeria {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.volver_galeria {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    transition-duration: .2s;
+}
+
+.volver_galeria:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(35, 173, 0);
+    transition-duration: .3s;
+}
+
+.contenedor_link_galeria_fotos {
+    grid-row-start: 6;
+    grid-column: 5/9;
+}
+
+.link_galeria_fotos {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    transition-duration: .2s;
+    font-size: 2rem;
+}
+
+.link_galeria_fotos:hover {
+    background-color: rgb(40, 40, 40);
+    color: rgb(235, 105, 255);
+    transition-duration: .3s;
+}
+
 
 
 
@@ -980,6 +1145,7 @@
 }
 
 .instagram:hover {
+    transform: translateY(-3px) ;
     scale: 1.2;
 }
 
@@ -990,6 +1156,7 @@
 }
 
 .facebook:hover {
+    transform: translateY(-3px) ;
     scale: 1.2;
 }
 
@@ -999,5 +1166,6 @@
 }
 
 .github:hover {
+    transform: translateY(-3px) ;
     scale: 1.2;
 }

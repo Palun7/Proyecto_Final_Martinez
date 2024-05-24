@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Galeria de fotos
+{% endblock title %}
+
+{% block content %}
+    <nav class="navbar">
+        <div class="titulo">
+            <h3><a href="{% url 'core:index' %}" class="link">Home</a></h3>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="paginas">
+            <ul class="links">
+                <a href="{% url 'perfil:index' %}" class="link">Perfil: {{ user.username }}</a>
+            </ul>
+        </div>
+        {% endif %}
+        <div class="login">
+            {% if user.is_authenticated %}
+            <form action="{% url 'login:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="logout">Logout</button>
+            </form>
+            {% else %}
+                <a href="{% url 'login:index' %}" class="link">login</a>
+                <a href="{% url 'login:singup' %}" class="link">Crear Usuario</a>
+            {% endif %}
+    </div>
+    </nav>
+    <main class="contenedor_galeria">
+        <div class="contenedor_titulo_galeria">
+            <h1 class="titulo_galeria">Galeria de Fotos</h1>
+        </div>
+        <div class="contenedor_galeria_fotos">
+            {% for mascota in mascotas %}
+            <div class="contenedor_fotos">
+                <div class="contenedor_nombre_foto">
+                    <p class="nombre_foto">{{ mascota.nombre }}</p>
+                </div>
+                {% if mascota.foto %}
+                <img src="{{ mascota.foto.url }}" alt="Foto de {{ object.nombre }}" width="" height="" class="foto_galeria">
+                {% endif %}
+                <div class="contenedor_dueño">
+                    <p class="dueño"><strong>By</strong> {{ mascota.user }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+            <div class="contenedor_volver_galeria">
+                <a href="{% url 'core:index' %}" class="volver_galeria">Volver</a>
+        </div>
+    </main>
+{% endblock content %}
