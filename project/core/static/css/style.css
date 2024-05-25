@@ -988,12 +988,12 @@
 }
 
 .copiar_enlace {
-    grid-column: 10/13;
+    grid-column: 2/5;
     grid-row-start: -3;
 }
 
 .copiar_enlace_control {
-    grid-column: 9/12;
+    grid-column: 2/5;
     grid-row-start: -3;
 }
 

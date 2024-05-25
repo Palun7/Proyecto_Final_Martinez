@@ -38,7 +38,9 @@
                 {% if object.datos_importantes %}
                 <li>Datos importantes: {{ object.datos_importantes }}</li>
                 {% endif %}
+                {% if object.descripcion %}
                 <li>{{ object.descripcion}}</li>
+                {% endif %}
             </div>
             {% if object.foto %}
             <img src="{{ object.foto.url }}" alt="Foto de {{ object.nombre }}" width="" height="" class="imagen_detalle">
