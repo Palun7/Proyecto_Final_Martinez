@@ -1,0 +1,34 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+    Inicio
+{% endblock title %}
+
+{% block content %}
+    <nav class="navbar">
+        {% if user.is_authenticated %}
+            <div class="paginas">
+                <ul class="links">
+                    <a href="{% url 'perfil:index' %}" class="link">Perfil: {{ user.username }}</a>
+                </ul>
+            </div>
+        {% endif %}
+        <p class="imagen_patita"><img src="https://us.123rf.com/450wm/vikatomas/vikatomas2112/vikatomas211200060/179541828-pata-de-gatito-blanco-lindo-icono-de-pata-de-gato-ilustración-de-vector-de-pie-de-gato-kawaii.jpg" alt="" width="" height="" class="patita"></p>
+        <div class="login">
+                {% if user.is_authenticated %}
+                <form action="{% url 'login:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="logout">Logout</button>
+                </form>
+                {% else %}
+                    <a href="{% url 'login:index' %}" class="link">login</a>
+                    <a href="{% url 'login:singup' %}" class="link">Crear Usuario</a>
+                {% endif %}
+        </div>
+    </nav>
+    <main class="contenedor">
+        <h1 class="titulo_index">Comunidad</h1>
+        <a href="{% url 'comunidad:veterinarias_list' %}">Veterinarias</a>
+    </main>
+{% endblock content %}

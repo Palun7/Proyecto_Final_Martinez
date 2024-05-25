@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'core',
     'login',
     'perfil',
+    'comunidad',
 ]
 
 MIDDLEWARE = [

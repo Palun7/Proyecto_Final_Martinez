@@ -1,0 +1,48 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+    Veterinaria
+{% endblock title %}
+
+{% block content %}
+    <nav class="navbar">
+        <div class="titulo">
+            <h3><a href="{% url 'core:index' %}" class="link">Home</a></h3>
+        </div>
+        <div class="paginas">
+            <ul class="links">
+                <a href="{% url 'perfil:index' %}" class="link">Perfil: {{ user.username }}</a>
+            </ul>
+        </div>
+        <div class="login">
+            {% if user.is_authenticated %}
+            <form action="{% url 'login:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="logout">Logout</button>
+            </form>
+            {% else %}
+                <a href="{% url 'login:index' %}" class="link">login</a>
+                <a href="{% url 'login:singup' %}" class="link">Crear Usuario</a>
+            {% endif %}
+        </div>
+    </nav>
+    <main class="contenedor">
+        <div class="titulo_detalle_control">
+            <h1>{{ object.nombre }}</h1>
+        </div>
+        <ul class="contenedor_detalle">
+            <div class="detalle">
+                <li>Telefono: {{ object.telefono }}</li>
+                <li>Dirección: {{ object.direccion }}</li>
+                <li>Localidad: {{ object.localidad }}</li>
+                <li>Ubicación: {{ object.ubicacion }}</li>
+                <li>Descripción: {{ object.descripcion }}</li>
+            </div>
+            <img src="{{ object.foto_referencia.url }}" alt="Foto de {{ object.nombre }}" width="" height="" class="imagen_detalle">
+        </ul>
+        <div class="volver_mascota_contenedor">
+            <a href="{% url 'comunidad:veterinarias_list' %}" class="volver_mascota">Volver</a>
+        </div>
+    </main>
+        {% endblock content %}

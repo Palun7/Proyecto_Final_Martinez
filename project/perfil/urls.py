@@ -18,7 +18,7 @@ from .views import (
 app_name = 'perfil'
 
 urlpatterns = [
-    path('perfil/index', index, name='index'),
+    path('perfil/', index, name='index'),
 ]
 
 urlpatterns += [
