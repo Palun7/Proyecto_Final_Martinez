@@ -134,6 +134,27 @@
     grid-row-start: 3;
 }
 
+.contenedor_comunidad {
+    grid-column: 12/15;
+    grid-row-start: 6;
+}
+
+.comunidad {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    transition-duration: .2s;
+    font-size: 2rem;
+}
+
+.comunidad:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(20, 224, 218);
+    transition-duration: .3s;
+}
+
 .sobre_mi {
     text-decoration: none;
     color: black;
@@ -787,7 +808,7 @@
 }
 
 .busqueda {
-    grid-column-start: 11;
+    grid-column-start: 12;
     grid-column-end: 15;
     grid-row-start: 2;
     align-content: center;
@@ -803,7 +824,7 @@
 }
 
 .contenedor_registrar_mascota {
-    grid-column-start: 5;
+    grid-column-start: 4;
     grid-column-end: 9;
     grid-row-start: 2;
     align-content: center;
@@ -1145,7 +1166,7 @@
 }
 
 .busqueda_control {
-    grid-column-start: 12;
+    grid-column-start: 13;
     grid-column-end: 16;
     grid-row-start: 2;
     align-content: center;
@@ -1159,6 +1180,85 @@
     width: 300px;
     padding-left: 10px;
 }
+
+
+
+
+
+/* comunidad */
+
+.header_lista_veterinarias {
+    grid-column: 1/-1;
+    grid-row: 1/5;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.titulo_veterinarias {
+    font-size: 2rem;
+    order: 2;
+}
+
+.contenedor_link_veterinarias {
+    grid-column: 6/10;
+    grid-row-start: 7;
+}
+
+.link_veterinarias {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black ;
+    border-radius: 5px;
+    padding: 10px;
+    transition-duration: .2s;
+    font-size: 2rem;
+}
+
+.link_veterinarias:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(0, 216, 254);
+    transition-duration: .3s;
+}
+
+.contenedor_registrar_veterinaria {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    justify-content: center;
+    order: 1;
+}
+
+.caja_registrar_veterinaria{
+    display: flex;
+    justify-content: center;
+}
+
+.registrar_veterinaria {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black ;
+    border-radius: 5px;
+    padding: 10px;
+    transition-duration: .2s;
+}
+
+.registrar_veterinaria:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(35, 173, 0);
+    transition-duration: .3s;
+}
+
+.volver_veterinarias_contenedor {
+    order: 4;
+    align-content: center;
+}
+
+.busqueda_veterinarias {
+    order: 3;
+}
+
+
 
 
 

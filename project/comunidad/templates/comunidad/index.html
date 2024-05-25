@@ -29,6 +29,9 @@
     </nav>
     <main class="contenedor">
         <h1 class="titulo_index">Comunidad</h1>
-        <a href="{% url 'comunidad:veterinarias_list' %}">Veterinarias</a>
+        <p class="contenedor_link_veterinarias"><a href="{% url 'comunidad:veterinarias_list' %}" class="link_veterinarias">Veterinarias</a></p>
+        <div class="volver_mascota_contenedor">
+            <a href="{% url 'core:index' %}" class="volver_mascota">Volver</a>
+        </div>
     </main>
 {% endblock content %}

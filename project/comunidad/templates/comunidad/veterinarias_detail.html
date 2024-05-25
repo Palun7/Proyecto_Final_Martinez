@@ -39,7 +39,9 @@
                 <li>Ubicación: {{ object.ubicacion }}</li>
                 <li>Descripción: {{ object.descripcion }}</li>
             </div>
-            <img src="{{ object.foto_referencia.url }}" alt="Foto de {{ object.nombre }}" width="" height="" class="imagen_detalle">
+            {% if object.foto_referencia %}
+                <img src="{{ object.foto_referencia.url }}" alt="Foto de {{ object.nombre }}" width="" height="" class="imagen_detalle">
+            {% endif %}
         </ul>
         <div class="volver_mascota_contenedor">
             <a href="{% url 'comunidad:veterinarias_list' %}" class="volver_mascota">Volver</a>
