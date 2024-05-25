@@ -1,11 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block title %}
-    {% if form.instance.pk %}
-    Editar veterinaria
-    {% else %}
-    Cargar veterinaria
-    {% endif %}
+    Cargar localidad
 {% endblock title %}
 
 {% block content %}
@@ -31,22 +27,15 @@
     </nav>
     <main class="contenedor">
         <div class="titulo_registrar">
-            <h1>Nueva veterinaria</h1>
+            <h1>Nueva localidad</h1>
         </div>
         <form method="post" class="formulario_control">
             {% csrf_token %}
             {{ form }}
             <button type="submit" class="boton_control">Guardar</button>
         </form>
-        {% if form.instance.pk %}
-        {% else %}
-            <div class="cargar_localidad_contenedor">
-                <p><strong>¿No encontras tu localidad?</strong></p>
-                <a href="{% url 'comunidad:localidad_create' %}" class="cargar_localidad">Cargar localidad</a>
-            </div>
-        {% endif %}
         <div class="volver_mascota_contenedor">
-            <a href="{% url 'comunidad:veterinarias_list' %}" class="volver_mascota">Volver</a>
+            <a href="{% url 'comunidad:veterinarias_create' %}" class="volver_mascota">Volver</a>
         </div>
     </main>
 {% endblock content %}

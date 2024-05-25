@@ -136,7 +136,7 @@
 
 .contenedor_comunidad {
     grid-column: 12/15;
-    grid-row-start: 6;
+    grid-row-start: 7;
 }
 
 .comunidad {
@@ -353,7 +353,7 @@
 }
 
 .contenedor_link_galeria_fotos {
-    grid-row-start: 6;
+    grid-row-start: 7;
     grid-column: 5/9;
 }
 
@@ -1201,7 +1201,7 @@
 }
 
 .contenedor_link_veterinarias {
-    grid-column: 6/10;
+    grid-column: 5/10;
     grid-row-start: 7;
 }
 
@@ -1258,6 +1258,31 @@
     order: 3;
 }
 
+.cargar_localidad_contenedor {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 12;
+    grid-column-end: 14;
+    grid-row-start: 7;
+    justify-content: center;
+    row-gap: 10px;
+}
+
+.cargar_localidad {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    transition-duration: .2s;
+}
+
+.cargar_localidad:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(0, 216, 254);
+    transition-duration: .3s;
+}
+
 
 
 
@@ -1307,4 +1332,69 @@
 .github:hover {
     transform: translateY(-3px) ;
     scale: 1.2;
+}
+
+@media (max-width: 500px) {
+    .navbar {
+        display: flex;
+    }
+
+    .contenedor {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 20px;
+    }
+
+    .header_lista_veterinarias {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    .contenedor_fotos {
+        width: 350px;
+    }
+
+    .foto_galeria {
+        max-width: 350px;
+    }
+
+    .contenedor_detalle {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+    }
+
+    .imagen_detalle {
+        width: 300px;
+    }
+
+    .formulario_mascota {
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+    }
+
+    .footer {
+        margin-top: 10px;
+    }
+
+    .formulario_cambio {
+        width: 400px;
+    }
+
+    .foto_contacto {
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        align-items: flex-start;
+        row-gap: 10px;
+    }
+}
+
+@media (max-width: 950px) {
+    .navbar {
+        display: flex;
+        justify-content: flex-end;
+    }
 }

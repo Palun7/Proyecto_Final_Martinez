@@ -47,9 +47,6 @@
             </div>
             <img src="{{ object.nombre.foto.url }}" alt="Foto de {{ object.nombre }}" width="" height="" class="imagen_detalle">
         </ul>
-        <div class="volver_mascota_contenedor">
-            <a href="{% url 'perfil:control_list' %}" class="volver_mascota">Volver</a>
-        </div>
         <div class="copiar_enlace_control">
             <label for="enlace-detalle">Comparti los datos:</label>
             <input type="text" id="enlace-detalle" value="{{ request.build_absolute_uri }}" readonly>
@@ -57,7 +54,7 @@
             <p id="mensaje" class="mensaje-copiado">¡Enlace copiado!</p>
         </div>
         <div class="volver_mascota_contenedor">
-            <a href="{% url 'perfil:mascota_list' %}" class="volver_mascota">Volver</a>
+            <a href="{% url 'perfil:control_list' %}" class="volver_mascota">Volver</a>
         </div>
     </main>
     <script>
