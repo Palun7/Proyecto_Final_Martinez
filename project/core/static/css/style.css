@@ -50,7 +50,7 @@
 
 .link:hover {
     cursor: pointer;
-    color: rgb(80, 0, 155);
+    color: rgb(11, 85, 183);
     transition-duration: .5s;
     border: 1px solid black;
     border-radius: 5px;
@@ -86,7 +86,7 @@
 
 .logout:hover {
     cursor: pointer;
-    color: rgb(80, 0, 155);
+    color: rgb(11, 85, 183);
     transition-duration: .5s;
     border: 1px solid black;
     border-radius: 5px;
@@ -99,14 +99,22 @@
 }
 
 .imagen_patita {
-    grid-column-start: 1;
-    grid-row-start: 1;
-    margin-left: 1rem;
-    order: -1;
+    grid-column-start: 8;
+    grid-row-start: 3;
+}
+
+.imagen_patita2 {
+    grid-column-start: 12;
+    grid-row-start: 3;
 }
 
 .patita {
-    width: 30px;
+    width: 60px;
+    border-radius: 5px;
+}
+
+.patita_icon {
+    border-radius: 5%;
 }
 
 
@@ -129,11 +137,25 @@
     grid-row-start: 3;
     font-size: 3rem;
     text-decoration: underline;
+    margin-left: 50px;
+}
+
+.titulo_index_comunidad {
+    grid-column-start: 9;
+    grid-column-end: 11;
+    grid-row-start: 3;
+    font-size: 3rem;
+    text-decoration: underline;
 }
 
 .contenedor_comunidad {
-    grid-column: 12/15;
+    grid-column: 12/16;
     grid-row-start: 7;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+    border-radius: 5px;
 }
 
 .comunidad {
@@ -329,8 +351,13 @@
 }
 
 .contenedor_link_galeria_fotos {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
     grid-row-start: 7;
     grid-column: 5/9;
+    border-radius: 5px;
 }
 
 .link_galeria_fotos {
@@ -580,8 +607,12 @@
 }
 
 .link_mascota_perfil {
-    grid-column: 6/10;
+    grid-column: 5/9;
     grid-row-start: 6;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
 }
 
 .mascota_perfil {
@@ -604,7 +635,10 @@
 .link_control_perfil {
     grid-column: 12/16;
     grid-row-start: 6;
-    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
 }
 
 .control_perfil {
@@ -941,10 +975,13 @@
 }
 
 .crear_raza_contenedor {
-    grid-column-start: 13;
-    grid-column-end: 15;
+    grid-column-start: 14;
+    grid-column-end: 16;
     grid-row-start: 6;
-    align-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
 }
 
 .crear_raza {
@@ -966,7 +1003,9 @@
     grid-column-start: 12;
     grid-column-end: 14;
     grid-row-start: 7;
-    align-content: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }
 
 .crear_vacunas {
@@ -1186,8 +1225,12 @@
 }
 
 .contenedor_link_veterinarias {
-    grid-column: 5/10;
+    grid-column: 4/9;
     grid-row-start: 7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
 }
 
 .link_veterinarias {
@@ -1264,8 +1307,12 @@
 }
 
 .contenedor_link_tipcuriosidad {
-    grid-column: 13/18;
+    grid-column: 12/17;
     grid-row-start: 7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
 }
 
 .link_tipcuriosidad {
@@ -1350,6 +1397,16 @@
     grid-column-start: 12;
     grid-column-end: 14;
     grid-row-start: 7;
+    justify-content: center;
+    row-gap: 10px;
+}
+
+.cargar_animal_contenedor {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 12;
+    grid-column-end: 14;
+    grid-row-start: 5;
     justify-content: center;
     row-gap: 10px;
 }
@@ -1489,6 +1546,10 @@
         row-gap: 40px;
     }
 
+    .titulo_index {
+        margin-right: 55px;
+    }
+
     .header_lista_veterinarias {
         flex-direction: column;
         row-gap: 20px;
@@ -1561,6 +1622,29 @@
     .tarjetas_tipcuriosidades {
         display: flex;
         flex-direction: column;
+    }
+
+    .contenedor_control_list {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .veterinarias_list_completo{
+        display: flex;
+        justify-content: center;
+    }
+
+    .tipcuriosidad_list_completo {
+        border: none;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contenedor_registrar_veterinaria {
+        display: flex;
+        justify-content: center;
     }
 }
 
