@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
-from .forms import VeterinariasForm, LocalidadForm
-from .models import Veterinarias, Localidad
+from .forms import VeterinariasForm, LocalidadForm, TipoAnimalForm, TipCuriosidadForm
+from .models import Veterinarias, Localidad, TipoAnimal, TipCuriosidad
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
@@ -40,8 +40,43 @@ def veterinariaslist(request):
     else:
         consulta = Veterinarias.objects.all()
     return render(request, 'comunidad/veterinarias_list.html', {'veterinarias': consulta})
-    
+
 class LocalidadCreate(CreateView):
     model = Localidad
     form_class= LocalidadForm
     success_url = reverse_lazy('comunidad:veterinarias_create')
+
+class TipoAnimalCreate(CreateView):
+    model = TipoAnimal
+    form_class = TipoAnimalForm
+    success_url = reverse_lazy('comunidad:tipcuriosidad_create')
+
+class TipCuriosidadCreate(CreateView, LoginRequiredMixin):
+    model = TipCuriosidad
+    form_class = TipCuriosidadForm
+    success_url = reverse_lazy('comunidad:tipcuriosidad_list')
+
+class TipCuriosidadDetail(DetailView):
+    model = TipCuriosidad
+
+class TipCuriosidadUpdate(UpdateView, LoginRequiredMixin):
+    model = TipCuriosidad
+    form_class= TipCuriosidadForm
+    success_url = reverse_lazy('comunidad:tipcuriosidad_list')
+
+class TipCuriosidadDelete(DeleteView, LoginRequiredMixin):
+    model = TipCuriosidad
+    success_url = reverse_lazy('comunidad:tipcuriosidad_list')
+
+def tipcuriosidadlist(request):
+    busqueda = request.GET.get("busqueda", None)
+    consulta = TipCuriosidad.objects.all()
+    if busqueda:
+        consulta = TipCuriosidad.objects.filter(
+            Q(nombre__icontains=busqueda) |
+            Q(animal__nombre__icontains=busqueda) |
+            Q(tip_o_curiosidad__icontains=busqueda)
+            )
+    else:
+        consulta = TipCuriosidad.objects.all()
+    return render(request, 'comunidad/tipcuriosidad_list.html', {'tipcuriosidad': consulta})

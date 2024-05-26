@@ -26,3 +26,32 @@ class Veterinarias(models.Model):
     class Meta:
         verbose_name = 'Veterinaria'
         verbose_name_plural = 'Veterinarias'
+
+class TipoAnimal(models.Model):
+    nombre = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.nombre
+
+    class Meta:
+        verbose_name = 'animal'
+        verbose_name_plural = 'animales'
+
+class TipCuriosidad(models.Model):
+
+    class TipCuriosidad(models.TextChoices):
+        TIP = 'tip', 'Tip'
+        CURIOSIDAD = 'curiosidad', 'Curiosidad'
+
+    nombre = models.CharField(max_length=100)
+    animal = models.ForeignKey(TipoAnimal, on_delete=models.SET_NULL, null=True, blank=True)
+    tip_o_curiosidad = models.CharField(max_length=10, choices=TipCuriosidad.choices, verbose_name='Tip o curiosidad')
+    url = models.CharField(max_length=250,null=True,blank=True, verbose_name='URL')
+    dato = models.TextField(null=True,blank=True)
+
+    def __str__(self):
+        return f'{self.nombre}, {self.animal}'
+
+    class Meta:
+        verbose_name = 'Tip o curiosidad'
+        verbose_name_plural = 'Tips o curiosidades'

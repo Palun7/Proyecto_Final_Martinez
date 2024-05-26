@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+    detalle del Tip/Curiosidad
+{% endblock title %}
+
+{% block content %}
+    <nav class="navbar">
+        <div class="titulo">
+            <h3><a href="{% url 'core:index' %}" class="link">Home</a></h3>
+        </div>
+        {% if user.is_authenticated %}
+            <div class="paginas">
+                <ul class="links">
+                    <a href="{% url 'perfil:index' %}" class="link">Perfil: {{ user.username }}</a>
+                </ul>
+            </div>
+        {% endif %}
+        <div class="login">
+            {% if user.is_authenticated %}
+            <form action="{% url 'login:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="logout">Logout</button>
+            </form>
+            {% else %}
+                <a href="{% url 'login:index' %}" class="link">login</a>
+                <a href="{% url 'login:singup' %}" class="link">Crear Usuario</a>
+            {% endif %}
+        </div>
+    </nav>
+    <main class="contenedor">
+        <div class="titulo_detalle_tipcuriosidad">
+            <h1>{{ object.nombre }}</h1>
+        </div>
+        <ul class="contenedor_detalle">
+            <div class="detalle">
+                <li>Animal: {{ object.animal }}</li>
+                <li>Tip o Curiosidad: {{ object.tip_o_curiosidad }}</li>
+                {% if object.url %}
+                    <li>URL: <a href="{{ object.url }}" target="_blank" rel="noopener noreferrer" class="url_tipcuriosidad">{{ object.url }}</a></li>
+                {% endif %}
+                {% if object.dato %}
+                    <li>Dato: {{ object.dato }}</li>
+                {% endif %}
+            </div>
+            {% if object.foto_referencia %}
+                <img src="{{ object.foto_referencia.url }}" alt="Foto de {{ object.nombre }}" width="" height="" class="imagen_detalle">
+            {% endif %}
+        </ul>
+        <div class="volver_mascota_contenedor">
+            <a href="{% url 'comunidad:tipcuriosidad_list' %}" class="volver_mascota">Volver</a>
+        </div>
+    </main>
+        {% endblock content %}

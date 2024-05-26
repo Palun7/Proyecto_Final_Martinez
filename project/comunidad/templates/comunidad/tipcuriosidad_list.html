@@ -1,0 +1,102 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Tip o Curiosidad
+{% endblock title %}
+
+{% block content %}
+    <nav class="navbar">
+        <div class="titulo">
+            <h3><a href="{% url 'core:index' %}" class="link">Home</a></h3>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="paginas">
+            <ul class="links">
+                <a href="{% url 'perfil:index' %}" class="link">Perfil: {{ user.username }}</a>
+            </ul>
+        </div>
+        {% endif %}
+        <div class="login">
+            {% if user.is_authenticated %}
+            <form action="{% url 'login:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="logout">Logout</button>
+            </form>
+            {% else %}
+                <a href="{% url 'login:index' %}" class="link">login</a>
+                <a href="{% url 'login:singup' %}" class="link">Crear Usuario</a>
+            {% endif %}
+        </div>
+    </nav>
+    <main class="contenedor">
+        <div class="header_lista_veterinarias">
+            <div class="busqueda_tipcuriosidad">
+                <form action="{% url 'comunidad:tipcuriosidad_list' %}" method="get">
+                    <input type="text" name="busqueda" placeholder="Buscar Tip o Curiosidad" class="texto_busqueda_control">
+                </form>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="contenedor_registrar_veterinaria">
+                <p><strong>¿Conocés algun tip o curiosidad que quieras compartir?</strong></p>
+                <p class="caja_registrar_veterinaria"><a href="{% url 'comunidad:tipcuriosidad_create' %}" class="registrar_veterinaria">Cargá un tip o curiosidad</a></p>
+            </div>
+            {% else %}
+            <div class="contenedor_registrar_veterinaria">
+                <p><strong>¿Conocés algun tip o curiosidad que quieras compartir?</strong></p>
+                <p class="caja_registrar_veterinaria"><a href="{% url 'login:index' %}" class="registrar_veterinaria">Debes Iniciar Sesión</a></p>
+            </div>
+            {% endif %}
+            <div class="volver_veterinarias_contenedor">
+                <a href="{% url 'comunidad:index' %}" class="volver_mascota">Volver</a>
+            </div>
+        </div>
+        <div class="contenedor_tips_curiosidades">
+            <div class="lista_tips">
+                <div class="contenedor_titulo_tipcuriosidad">
+                    <h1 class="titulo_tips">Lista de Tips</h1>
+                </div>
+                <div class="tarjetas_tipcuriosidades">
+                    {% for dato in tipcuriosidad %}
+                    {% if dato.tip_o_curiosidad == 'tip' %}
+                    <ul class="veterinarias_list_completo">
+                        <div class="control_list">
+                            <p class="nombre_control"><strong>{{dato.nombre}}</strong></p>
+                            <div class="crud_mascota">
+                                <a href="{% url 'comunidad:tipcuriosidad_detail' dato.id %}" class="control_detalle">Detalles</a>
+                                {% if user.is_authenticated %}
+                                <a href="{% url 'comunidad:tipcuriosidad_update' dato.id %}" class="control_editar">Editar</a>
+                                <a href="{% url 'comunidad:tipcuriosidad_delete' dato.id %}" class="control_borrar">Borrar</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </ul>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="lista_curiosidades">
+                <div class="contenedor_titulo_tipcuriosidad">
+                    <h1 class="titulo_curiosidades">Lista de curiosidades</h1>
+                </div>
+                <div class="tarjetas_tipcuriosidades">
+                    {% for dato in tipcuriosidad %}
+                    {% if dato.tip_o_curiosidad == 'curiosidad' %}
+                    <ul class="veterinarias_list_completo">
+                        <div class="control_list">
+                            <p class="nombre_control"><strong>{{dato.nombre}}</strong></p>
+                            <div class="crud_mascota">
+                                <a href="{% url 'comunidad:tipcuriosidad_detail' dato.id %}" class="control_detalle">Detalles</a>
+                                {% if user.is_authenticated %}
+                                <a href="{% url 'comunidad:tipcuriosidad_update' dato.id %}" class="control_editar">Editar</a>
+                                <a href="{% url 'comunidad:tipcuriosidad_delete' dato.id %}" class="control_borrar">Borrar</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </ul>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
