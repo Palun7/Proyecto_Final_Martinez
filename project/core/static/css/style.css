@@ -10,8 +10,9 @@
     display: grid;
     grid-template-columns: repeat(20, 5vw);
     grid-template-rows: repeat(18, 5vh);
-    min-height: 92.75vh;
+    min-height: 92.54vh;
     background-color: rgb(204, 240, 255);
+    width: 100vw;
 }
 
 
@@ -101,6 +102,7 @@
     grid-column-start: 1;
     grid-row-start: 1;
     margin-left: 1rem;
+    order: -1;
 }
 
 .patita {
@@ -129,11 +131,6 @@
     text-decoration: underline;
 }
 
-.contenedor_sobre_mi {
-    grid-column: -2/-5;
-    grid-row-start: 3;
-}
-
 .contenedor_comunidad {
     grid-column: 12/15;
     grid-row-start: 7;
@@ -152,27 +149,6 @@
 .comunidad:hover {
     background-color: rgb(80, 80, 80);
     color: rgb(20, 224, 218);
-    transition-duration: .3s;
-}
-
-.sobre_mi {
-    text-decoration: none;
-    color: black;
-    border: 1px solid black;
-    box-sizing: content-box;
-    padding: 10px;
-    border-radius: 5px;
-    transition-duration: .2s;
-    font-size: 1.5rem;
-    width: 160px;
-    margin-left: 20px;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.sobre_mi:hover {
-    background-color: rgb(58, 58, 58);
-    color: rgb(234, 241, 28);
     transition-duration: .3s;
 }
 
@@ -1140,11 +1116,19 @@
     transition-duration: .3s;
 }
 
-.control_list_completo {
+.contenedor_control_list {
     display: grid;
-    gap: 1rem;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 20px;
     grid-row-start: 4;
-    grid-column-start: span 3;
+    grid-row-end: -1;
+    grid-column: 1/-1;
+}
+
+.control_list_completo {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
 }
 
 .control_list {
@@ -1216,6 +1200,81 @@
 }
 
 .link_veterinarias:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(0, 216, 254);
+    transition-duration: .3s;
+}
+
+.contenedor_tips_curiosidades {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: space-around;
+}
+
+.lista_tips {
+    width: 50%;
+}
+
+.lista_curiosidades {
+    width: 50%;
+}
+
+.contenedor_titulo_tipcuriosidad {
+    display: flex;
+    justify-content: center;
+}
+
+.titulo_tips {
+    margin-bottom: 40px;
+}
+
+.titulo_curiosidades {
+    margin-bottom: 40px;
+}
+
+.tarjetas_tipcuriosidades {
+    display: flex;
+}
+
+.contenedor_link_tipcuriosidad {
+    grid-column: 13/18;
+    grid-row-start: 7;
+}
+
+.link_tipcuriosidad {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black ;
+    border-radius: 5px;
+    padding: 10px;
+    transition-duration: .2s;
+    font-size: 2rem;
+}
+
+.link_tipcuriosidad:hover {
+    background-color: rgb(80, 80, 80);
+    color: rgb(0, 216, 254);
+    transition-duration: .3s;
+}
+
+.url_tipcuriosidad {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black ;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 10px;
+    transition-duration: .2s;
+}
+
+.titulo_detalle_tipcuriosidad {
+    grid-column-start: 8;
+    grid-column-end: 17;
+    grid-row-start: 2;
+    text-decoration: underline black;
+}
+
+.url_tipcuriosidad:hover {
     background-color: rgb(80, 80, 80);
     color: rgb(0, 216, 254);
     transition-duration: .3s;
@@ -1295,15 +1354,23 @@
     display: flex;
     min-width: 100vw;
     background-color: rgb(22, 110, 0);
-    column-gap: 3rem;
+    column-gap: 20px;
+    height: 30px;
 }
 
 .contacto {
+    margin-top: 4px;
     margin-left: 1rem;
     font-weight: bold;
 }
 
+.contenedor_redes {
+    display: flex;
+    column-gap: 50px;
+}
+
 .instagram {
+    margin-top: 2px;
     transition-duration: .5s;
     cursor: pointer;
 }
@@ -1314,6 +1381,7 @@
 }
 
 .facebook {
+    margin-top: 2px;
     transition-duration: .5s;
     cursor: pointer;
     box-sizing: border-box;
@@ -1325,6 +1393,7 @@
 }
 
 .github {
+    margin-top: 2px;
     transition-duration: .5s;
     cursor: pointer;
 }
@@ -1334,16 +1403,63 @@
     scale: 1.2;
 }
 
+.linkedin {
+    margin-top: 2px;
+    margin-right: 5px;
+    transition-duration: .3s;
+}
+
+.linkedin:hover {
+    transform: translateY(-3px) ;
+    scale: 1.1;
+}
+
+.whatsapp {
+    margin-top: 2px;
+    margin-right: 5px;
+    transition-duration: .3s;
+}
+
+.whatsapp:hover {
+    transform: translateY(-3px) ;
+    scale: 1.1;
+}
+
+.contenedor_sobre_mi {
+    margin-top: 6px;
+    margin-left: 50px;
+}
+
+.sobre_mi {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    box-sizing: content-box;
+    border-radius: 5px;
+    transition-duration: .2s;
+    width: 160px;
+    font-weight: bold;
+    padding: 3px 7px;
+}
+
+.sobre_mi:hover {
+    background-color: rgb(58, 58, 58);
+    color: rgb(234, 241, 28);
+    transition-duration: .3s;
+}
+
 @media (max-width: 500px) {
     .navbar {
         display: flex;
+        column-gap: 20px;
+        height: 50px;
     }
 
     .contenedor {
         display: flex;
         flex-direction: column;
         align-items: center;
-        row-gap: 20px;
+        row-gap: 40px;
     }
 
     .header_lista_veterinarias {
@@ -1376,7 +1492,24 @@
     }
 
     .footer {
-        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .contenedor_sobre_mi {
+        margin: 0;
+        margin-top: 20px;
+    }
+
+    .contacto {
+        margin: 0;
+        margin-top: 20px;
+    }
+
+    .contenedor_redes {
+        margin-top: 20px;
     }
 
     .formulario_cambio {
@@ -1390,11 +1523,24 @@
         align-items: flex-start;
         row-gap: 10px;
     }
+
+    .contenedor_tips_curiosidades {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tarjetas_tipcuriosidades {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 950px) {
     .navbar {
         display: flex;
         justify-content: flex-end;
+        column-gap: 20px;
     }
 }

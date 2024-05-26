@@ -44,7 +44,7 @@
             {% else %}
             <div class="contenedor_registrar_veterinaria">
                 <p><strong>¿Conocés alguna veterinaria que recomiendes?</strong></p>
-                <p class="caja_registrar_veterinaria"><a href="{% url 'login:index' %}" class="registrar_veterinaria">Iniciar Sesión</a></p>
+                <p class="caja_registrar_veterinaria"><a href="{% url 'login:index' %}" class="registrar_veterinaria">Debes Iniciar Sesión</a></p>
             </div>
             {% endif %}
             <div class="volver_veterinarias_contenedor">
@@ -54,7 +54,7 @@
         {% for veterinaria in veterinarias %}
             <ul class="veterinarias_list_completo">
                 <div class="control_list">
-                    <p class="nombre_control">{{veterinaria.nombre}}</p>
+                    <p class="nombre_control"><strong>{{veterinaria.nombre}}</strong></p>
                     <div class="crud_mascota">
                         <a href="{% url 'comunidad:veterinarias_detail' veterinaria.id %}" class="control_detalle">Detalles</a>
                         {% if user.is_authenticated %}

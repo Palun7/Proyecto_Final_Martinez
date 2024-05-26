@@ -10,11 +10,13 @@
         <div class="titulo">
             <h3><a href="{% url 'core:index' %}" class="link">Home</a></h3>
         </div>
-        <div class="paginas">
-            <ul class="links">
-                <a href="{% url 'perfil:index' %}" class="link">Perfil: {{ user.username }}</a>
-            </ul>
-        </div>
+        {% if user.is_authenticated %}
+            <div class="paginas">
+                <ul class="links">
+                    <a href="{% url 'perfil:index' %}" class="link">Perfil: {{ user.username }}</a>
+                </ul>
+            </div>
+        {% endif %}
         <div class="login">
             {% if user.is_authenticated %}
             <form action="{% url 'login:logout' %}" method="post">
@@ -36,8 +38,12 @@
                 <li>Telefono: {{ object.telefono }}</li>
                 <li>Dirección: {{ object.direccion }}</li>
                 <li>Localidad: {{ object.localidad }}</li>
-                <li>Ubicación: {{ object.ubicacion }}</li>
+                {% if object.ubicacion %}
+                <li>Ubicación: <br><br><a href="{{ object.ubicacion }}" target="_blank" rel="noopener noreferrer" class="url_tipcuriosidad">{{ object.ubicacion }}</a></li>
+                {% endif %}
+                {% if object.descripcion %}
                 <li>Descripción: {{ object.descripcion }}</li>
+                {% endif %}
             </div>
             {% if object.foto_referencia %}
                 <img src="{{ object.foto_referencia.url }}" alt="Foto de {{ object.nombre }}" width="" height="" class="imagen_detalle">

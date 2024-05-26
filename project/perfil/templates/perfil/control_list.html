@@ -31,15 +31,16 @@
             </form>
         </div>
         <div class="contenedor_registrar_mascota">
-            <a href="{% url 'perfil:control_create' %}" class="registrar_mascota">Registra un control médico</a>
+            <a href="{% url 'perfil:control_create' %}" class="registrar_mascota">Registrá un control médico</a>
         </div>
-        {% for object in object_list %}
+        <div class="contenedor_control_list">
+            {% for object in object_list %}
             <ul class="control_list_completo">
                 <div class="control_list">
                     {% if object.nombre.foto %}
                     <img src="{{ object.nombre.foto.url }}" alt="Foto de {{ object.nombre }}" width="50" height="">
                     {% endif %}
-                    <p class="nombre_control">Control de {{object.nombre}}</p>
+                    <p class="nombre_control">Control de <strong>{{object.nombre}}</strong></p>
                     <p class="fecha_control">Fecha: {{ object.fecha_control.day }}/{{ object.fecha_control.month }}/{{ object.fecha_control.year }}</p>
                     <div class="crud_mascota">
                         <a href="{% url 'perfil:control_detail' object.id %}" class="control_detalle">Detalles</a>
@@ -48,7 +49,8 @@
                     </div>
                 </div>
             </ul>
-        {% endfor %}
+            {% endfor %}
+        </div>
         <div class="volver_mascota_contenedor">
             <a href="{% url 'perfil:index' %}" class="volver_mascota">Volver</a>
         </div>

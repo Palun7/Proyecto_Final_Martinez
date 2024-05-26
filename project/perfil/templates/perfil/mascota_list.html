@@ -31,17 +31,18 @@
             </form>
         </div>
         <div class="contenedor_registrar_mascota">
-            <a href="{% url 'perfil:mascota_create' %}" class="registrar_mascota">Registra tu mascota</a>
+            <a href="{% url 'perfil:mascota_create' %}" class="registrar_mascota">Registrá tu mascota</a>
         </div>
-        {% for object in object_list %}
-            <ul class="mascota_list_completo">
+        <div class="contenedor_control_list">
+            {% for object in object_list %}
+            <ul class="control_list_completo">
                 <div class="mascota_list">
                     {% if object.foto %}
                     <img src="{{ object.foto.url }}" alt="Foto de {{ object.nombre }}" width="" height="" class="foto_mascota">
                     {% else %}
                     <p class="foto_mascota">No hay foto disponible</p>
                     {% endif %}
-                    <p class="nombre_mascota">{{object.nombre}}</p>
+                    <p class="nombre_mascota"><strong>{{object.nombre}}</strong></p>
                     <div class="crud_mascota">
                         <a href="{% url 'perfil:mascota_detail' object.id %}" class="mascota_detalle">Detalles</a>
                         <a href="{% url 'perfil:mascota_update' object.id %}" class="mascota_editar">Editar</a>
@@ -49,9 +50,10 @@
                     </div>
                 </div>
             </ul>
-        {% endfor %}
-        <div class="volver_mascota_contenedor">
-            <a href="{% url 'perfil:index' %}" class="volver_mascota">Volver</a>
+            {% endfor %}
         </div>
-    </main>
-{% endblock content %}
+            <div class="volver_mascota_contenedor">
+                <a href="{% url 'perfil:index' %}" class="volver_mascota">Volver</a>
+            </div>
+        </main>
+        {% endblock content %}
