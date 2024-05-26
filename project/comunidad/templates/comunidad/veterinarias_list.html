@@ -51,19 +51,22 @@
                 <a href="{% url 'comunidad:index' %}" class="volver_mascota">Volver</a>
             </div>
         </div>
-        {% for veterinaria in veterinarias %}
+        <div class="contenedor_control_list">
             <ul class="veterinarias_list_completo">
-                <div class="control_list">
-                    <p class="nombre_control"><strong>{{veterinaria.nombre}}</strong></p>
-                    <div class="crud_mascota">
-                        <a href="{% url 'comunidad:veterinarias_detail' veterinaria.id %}" class="control_detalle">Detalles</a>
-                        {% if user.is_authenticated %}
-                        <a href="{% url 'comunidad:veterinarias_update' veterinaria.id %}" class="control_editar">Editar</a>
-                        <a href="{% url 'comunidad:veterinarias_delete' veterinaria.id %}" class="control_borrar">Borrar</a>
-                        {% endif %}
+                {% for veterinaria in veterinarias %}
+                    <div class="control_list">
+                        <p class="nombre_control"><strong>{{veterinaria.nombre}}</strong></p>
+                        <p class="veterinaria_localidad">{{ veterinaria.localidad}}</p>
+                        <div class="crud_mascota">
+                            <a href="{% url 'comunidad:veterinarias_detail' veterinaria.id %}" class="control_detalle">Detalles</a>
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'comunidad:veterinarias_update' veterinaria.id %}" class="control_editar">Editar</a>
+                            <a href="{% url 'comunidad:veterinarias_delete' veterinaria.id %}" class="control_borrar">Borrar</a>
+                            {% endif %}
+                        </div>
                     </div>
-                </div>
+                {% endfor %}
             </ul>
-        {% endfor %}
+        </div>
     </main>
 {% endblock content %}

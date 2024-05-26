@@ -55,10 +55,9 @@
                 <div class="contenedor_titulo_tipcuriosidad">
                     <h1 class="titulo_tips">Lista de Tips</h1>
                 </div>
-                <div class="tarjetas_tipcuriosidades">
+                <ul class="tipcuriosidad_list_completo">
                     {% for dato in tipcuriosidad %}
                     {% if dato.tip_o_curiosidad == 'tip' %}
-                    <ul class="veterinarias_list_completo">
                         <div class="control_list">
                             <p class="nombre_control"><strong>{{dato.nombre}}</strong></p>
                             <div class="crud_mascota">
@@ -69,19 +68,17 @@
                                 {% endif %}
                             </div>
                         </div>
-                    </ul>
                     {% endif %}
                     {% endfor %}
-                </div>
+                </ul>
             </div>
             <div class="lista_curiosidades">
                 <div class="contenedor_titulo_tipcuriosidad">
                     <h1 class="titulo_curiosidades">Lista de curiosidades</h1>
                 </div>
-                <div class="tarjetas_tipcuriosidades">
+                <ul class="tipcuriosidad_list_completo">
                     {% for dato in tipcuriosidad %}
                     {% if dato.tip_o_curiosidad == 'curiosidad' %}
-                    <ul class="veterinarias_list_completo">
                         <div class="control_list">
                             <p class="nombre_control"><strong>{{dato.nombre}}</strong></p>
                             <div class="crud_mascota">
@@ -92,10 +89,9 @@
                                 {% endif %}
                             </div>
                         </div>
-                    </ul>
                     {% endif %}
                     {% endfor %}
-                </div>
+                </ul>
             </div>
         </div>
     </main>

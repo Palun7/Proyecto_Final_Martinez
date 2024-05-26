@@ -1120,9 +1120,10 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 20px;
-    grid-row-start: 4;
+    grid-row-start: 5;
     grid-row-end: -1;
     grid-column: 1/-1;
+
 }
 
 .control_list_completo {
@@ -1205,6 +1206,20 @@
     transition-duration: .3s;
 }
 
+.veterinarias_list_completo {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100vw;
+    column-gap: 20px;
+    grid-column-start: span 3;
+}
+
+.veterinaria_localidad {
+    margin-bottom: 15px;
+    margin-top: 5px;
+    grid-row-start: 2;
+}
+
 .contenedor_tips_curiosidades {
     grid-column: 1/-1;
     display: flex;
@@ -1234,6 +1249,18 @@
 
 .tarjetas_tipcuriosidades {
     display: flex;
+}
+
+.tipcuriosidad_list_completo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 49vw;
+    column-gap: 5px;
+    grid-column-start: span 3;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: .5vw;
+    margin-right: .5vw;
 }
 
 .contenedor_link_tipcuriosidad {
