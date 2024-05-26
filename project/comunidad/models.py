@@ -39,13 +39,13 @@ class TipoAnimal(models.Model):
 
 class TipCuriosidad(models.Model):
 
-    class TipCuriosidad(models.TextChoices):
+    class TipoCuriosidad(models.TextChoices):
         TIP = 'tip', 'Tip'
         CURIOSIDAD = 'curiosidad', 'Curiosidad'
 
     nombre = models.CharField(max_length=100)
     animal = models.ForeignKey(TipoAnimal, on_delete=models.SET_NULL, null=True, blank=True)
-    tip_o_curiosidad = models.CharField(max_length=10, choices=TipCuriosidad.choices, verbose_name='Tip o curiosidad')
+    tip_o_curiosidad = models.CharField(max_length=10, choices=TipoCuriosidad.choices, verbose_name='Tip o curiosidad')
     url = models.CharField(max_length=250,null=True,blank=True, verbose_name='URL')
     dato = models.TextField(null=True,blank=True)
 
