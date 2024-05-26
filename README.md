@@ -18,5 +18,13 @@
 
 - Dentro del registro de las mascotas podemos acceder al registro de Razas y dentro del registro del control médico podemos acceder al registro de vacunas.
 
+> La página también muestra las fotos de las mascotas registradas y brinda una sección "comunidad"
+
+- En la galería de fotos se pueden ver todas las mascotas registradas en la página.
+
+- En la sección comunidad se pueden ver veterinarias, tips y curiosidades.
+
+- En caso que haya iniciado sesión, se pueden cargar, editar y eliminar las veterinarias, tips y curiosidades.
+
 ## Video
 ...
