@@ -13,6 +13,7 @@
     min-height: 92.54vh;
     background-color: rgb(204, 240, 255);
     width: 100vw;
+    overflow: auto;
 }
 
 
@@ -26,7 +27,7 @@
     grid-template-columns: repeat(20, 5vw);
     grid-template-rows: 40px;
     width: 100vw;
-    background-color: rgb(22, 110, 0);
+    background: linear-gradient(rgb(22, 110, 0), rgb(36, 145, 24));
     align-items: center;
 }
 
@@ -273,7 +274,7 @@
 }
 
 .contenedor_galeria {
-    min-height: 92vh;
+    min-height: 92.52vh;
     display: flex;
     flex-flow: column wrap;
     background-color: rgb(204, 240, 255);
@@ -1162,7 +1163,8 @@
     grid-row-start: 5;
     grid-row-end: -1;
     grid-column: 1/-1;
-
+    overflow: hidden;
+    
 }
 
 .control_list_completo {
@@ -1270,11 +1272,13 @@
 }
 
 .lista_tips {
-    width: 50%;
+    height: 72vh;
+    overflow: auto;
+    width: 50vw;
 }
 
 .lista_curiosidades {
-    width: 50%;
+    width: 50vw;
 }
 
 .contenedor_titulo_tipcuriosidad {
@@ -1297,10 +1301,9 @@
 .tipcuriosidad_list_completo {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    width: 49vw;
+    width: 48em;
     column-gap: 5px;
     grid-column-start: span 3;
-    border: 1px solid black;
     border-radius: 5px;
     margin-left: .5vw;
     margin-right: .5vw;
@@ -1437,7 +1440,7 @@
 .footer {
     display: flex;
     min-width: 100vw;
-    background-color: rgb(22, 110, 0);
+    background: linear-gradient(rgb(36, 145, 24), rgb(22, 110, 0));
     column-gap: 20px;
     height: 30px;
 }
