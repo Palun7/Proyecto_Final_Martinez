@@ -54,4 +54,7 @@
 *En la ruta "admin" podemos encontrar el CRUD de todo lo anterior mencionado, pero "razas", "vacunas", "animal" y "localidad" desde el html solo se pueden crear. 
 
 ## Video
-...
+
+> En el video muestro como es el funcionamiento visual de la página.
+
+- https://www.youtube.com/watch?v=NLBVi7JMkIY
