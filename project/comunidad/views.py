@@ -16,6 +16,10 @@ class VeterinariasCreate(CreateView, LoginRequiredMixin):
     form_class= VeterinariasForm
     success_url = reverse_lazy('comunidad:veterinarias_list')
 
+    def form_valid(self, form):
+        form.instance.usuario = self.request.user
+        return super().form_valid(form)
+
 class VeterinariasDetail(DetailView):
     model = Veterinarias
 
@@ -37,9 +41,17 @@ def veterinariaslist(request):
             Q(direccion__icontains=busqueda) |
             Q(localidad__localidad__icontains=busqueda)
             )
+        contexto = {
+            'veterinarias': consulta,
+            'user' : request.user
+        }
     else:
         consulta = Veterinarias.objects.all()
-    return render(request, 'comunidad/veterinarias_list.html', {'veterinarias': consulta})
+        contexto = {
+            'veterinarias': consulta,
+            'user' : request.user
+        }
+    return render(request, 'comunidad/veterinarias_list.html', contexto)
 
 class LocalidadCreate(CreateView):
     model = Localidad
@@ -55,6 +67,10 @@ class TipCuriosidadCreate(CreateView, LoginRequiredMixin):
     model = TipCuriosidad
     form_class = TipCuriosidadForm
     success_url = reverse_lazy('comunidad:tipcuriosidad_list')
+
+    def form_valid(self, form):
+        form.instance.usuario = self.request.user
+        return super().form_valid(form)
 
 class TipCuriosidadDetail(DetailView):
     model = TipCuriosidad
@@ -77,6 +93,14 @@ def tipcuriosidadlist(request):
             Q(animal__nombre__icontains=busqueda) |
             Q(tip_o_curiosidad__icontains=busqueda)
             )
+        contexto = {
+            'tipcuriosidad': consulta,
+            'user' : request.user
+        }
     else:
         consulta = TipCuriosidad.objects.all()
-    return render(request, 'comunidad/tipcuriosidad_list.html', {'tipcuriosidad': consulta})
+        contexto = {
+            'tipcuriosidad': consulta,
+            'user' : request.user
+        }
+    return render(request, 'comunidad/tipcuriosidad_list.html', contexto)

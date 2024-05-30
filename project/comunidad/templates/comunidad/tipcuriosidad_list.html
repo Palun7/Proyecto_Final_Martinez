@@ -62,7 +62,7 @@
                             <p class="nombre_control"><strong>{{dato.nombre}}</strong></p>
                             <div class="crud_mascota">
                                 <a href="{% url 'comunidad:tipcuriosidad_detail' dato.id %}" class="control_detalle">Detalles</a>
-                                {% if user.is_authenticated %}
+                                {% if user.is_authenticated and dato.usuario == user %}
                                 <a href="{% url 'comunidad:tipcuriosidad_update' dato.id %}" class="control_editar">Editar</a>
                                 <a href="{% url 'comunidad:tipcuriosidad_delete' dato.id %}" class="control_borrar">Borrar</a>
                                 {% endif %}
@@ -83,7 +83,7 @@
                             <p class="nombre_control"><strong>{{dato.nombre}}</strong></p>
                             <div class="crud_mascota">
                                 <a href="{% url 'comunidad:tipcuriosidad_detail' dato.id %}" class="control_detalle">Detalles</a>
-                                {% if user.is_authenticated %}
+                                {% if user.is_authenticated and dato.usuario == user %}
                                 <a href="{% url 'comunidad:tipcuriosidad_update' dato.id %}" class="control_editar">Editar</a>
                                 <a href="{% url 'comunidad:tipcuriosidad_delete' dato.id %}" class="control_borrar">Borrar</a>
                                 {% endif %}

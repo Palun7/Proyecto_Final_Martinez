@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Localidad(models.Model):
     localidad = models.CharField(max_length=100)
@@ -19,6 +20,7 @@ class Veterinarias(models.Model):
     ubicacion = models.CharField(max_length=250, null=True,blank=True, verbose_name='ubicación')
     foto_referencia = models.ImageField(upload_to='fotos',null=True,blank=True)
     descripcion = models.TextField(null=True,blank=True, verbose_name='descripción')
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.nombre}, {self.localidad}'
@@ -48,6 +50,7 @@ class TipCuriosidad(models.Model):
     tip_o_curiosidad = models.CharField(max_length=10, choices=TipoCuriosidad.choices, verbose_name='Tip o curiosidad')
     url = models.CharField(max_length=250,null=True,blank=True, verbose_name='URL')
     dato = models.TextField(null=True,blank=True)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.nombre}, {self.animal}'

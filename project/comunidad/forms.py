@@ -4,7 +4,7 @@ from .models import Veterinarias, Localidad, TipoAnimal, TipCuriosidad
 class VeterinariasForm(forms.ModelForm):
     class Meta:
         model = Veterinarias
-        fields = '__all__'
+        fields = ['nombre', 'telefono', 'direccion', 'localidad', 'ubicacion', 'foto_referencia', 'descripcion']
 
 class LocalidadForm(forms.ModelForm):
     class Meta:
@@ -19,4 +19,4 @@ class TipoAnimalForm(forms.ModelForm):
 class TipCuriosidadForm(forms.ModelForm):
     class Meta:
         model = TipCuriosidad
-        fields = '__all__'
+        fields = ['nombre', 'animal', 'tip_o_curiosidad', 'url', 'dato']

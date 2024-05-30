@@ -59,7 +59,7 @@
                         <p class="veterinaria_localidad">{{ veterinaria.localidad}}</p>
                         <div class="crud_mascota">
                             <a href="{% url 'comunidad:veterinarias_detail' veterinaria.id %}" class="control_detalle">Detalles</a>
-                            {% if user.is_authenticated %}
+                            {% if user.is_authenticated and veterinaria.usuario == user %}
                             <a href="{% url 'comunidad:veterinarias_update' veterinaria.id %}" class="control_editar">Editar</a>
                             <a href="{% url 'comunidad:veterinarias_delete' veterinaria.id %}" class="control_borrar">Borrar</a>
                             {% endif %}
