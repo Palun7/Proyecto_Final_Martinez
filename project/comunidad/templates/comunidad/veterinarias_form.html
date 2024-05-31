@@ -31,7 +31,11 @@
     </nav>
     <main class="contenedor">
         <div class="titulo_registrar">
-            <h1>Nueva veterinaria</h1>
+            {% if form.instance.pk %}
+                <h1>Editar veterinaria</h1>
+            {% else %}
+                <h1>Nueva veterinaria</h1>
+            {% endif %}
         </div>
         <form method="post" class="formulario_control">
             {% csrf_token %}

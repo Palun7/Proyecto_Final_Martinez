@@ -31,7 +31,15 @@
     </nav>
     <main class="contenedor">
         <div class="titulo_registrar">
-            <h1>Nuevo Tip/Curiosidad</h1>
+            {% if form.instance.pk %}
+                {% if form.instance.tip_o_curiosidad == 'tip' %}
+                    <h1>Editar tip</h1>
+                {% else %}
+                    <h1>Editar curiosidad</h1>
+                {% endif %}
+            {% else %}
+                <h1>Nuevo Tip/Curiosidad</h1>
+            {% endif %}
         </div>
         <form method="post" class="formulario_control">
             {% csrf_token %}
