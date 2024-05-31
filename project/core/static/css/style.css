@@ -941,8 +941,8 @@
 }
 
 .pregunta_borrar {
-    grid-column-start: 8;
-    grid-column-end: 12;
+    grid-column-start: 7;
+    grid-column-end: 13;
     grid-row-start: 3;
     font-size: 2.2rem;
 }
@@ -958,7 +958,7 @@
     background: none;
     border: 1px solid black;
     border-radius: 5px;
-    margin-top: 10px;
+    margin-top: 50px;
     font: inherit;
     color: inherit;
     cursor: pointer;
@@ -1163,7 +1163,7 @@
     grid-row-start: 5;
     grid-row-end: -1;
     grid-column: 1/-1;
-    overflow: hidden;
+    overflow: auto;
     
 }
 
@@ -1177,13 +1177,14 @@
     display: grid;
     grid-template-rows: 2fr 1fr 1fr 1fr;
     align-items: center;
-    width: 200px;
+    width: 250px;
     height: 130px;
     border: 1px solid black;
     border-radius: 5px;
     padding: 3px;
     margin: .5rem;
     box-shadow: 2px 2px 5px 1px black;
+    overflow: auto;
 }
 
 .nombre_control {
@@ -1253,7 +1254,7 @@
 
 .veterinarias_list_completo {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     width: 100vw;
     column-gap: 20px;
     grid-column-start: span 3;
@@ -1300,7 +1301,7 @@
 
 .tipcuriosidad_list_completo {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     width: 48em;
     column-gap: 5px;
     grid-column-start: span 3;
@@ -1643,6 +1644,10 @@
         border: none;
         display: flex;
         flex-direction: column;
+    }
+
+    .lista_tips {
+        width: 400px;
     }
 
     .contenedor_registrar_veterinaria {
