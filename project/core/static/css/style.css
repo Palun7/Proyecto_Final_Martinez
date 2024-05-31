@@ -902,6 +902,15 @@
     margin-left: 2rem;
 }
 
+.titulo_registrar_control {
+    display: flex;
+    grid-row-start: 3;
+    grid-column-start: 8;
+    grid-column-end: 14;
+    color: rgb(0, 0, 0);
+    margin-left: 2rem;
+}
+
 .titulo_detalle {
     grid-column-start: 10;
     grid-column-end: 12;

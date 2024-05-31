@@ -33,7 +33,7 @@
         <div class="titulo_registrar">
             {% if form.instance.pk %}
                 {% if form.instance.tip_o_curiosidad == 'tip' %}
-                    <h1>Editar tip</h1>
+                    <h1>Editar tip {{ form.instance.nombre }}</h1>
                 {% else %}
                     <h1>Editar curiosidad</h1>
                 {% endif %}

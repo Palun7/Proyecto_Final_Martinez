@@ -28,9 +28,9 @@
         </div>
     </nav>
     <main class="contenedor">
-        <div class="titulo_registrar">
+        <div class="titulo_registrar_control">
             {% if form.instance.pk %}
-                <h1>Editar control médico</h1>
+                <h1>Editar control médico de {{ form.instance.nombre }}</h1>
             {% else %}
                 <h1>Registrar control médico</h1>
             {% endif %}
