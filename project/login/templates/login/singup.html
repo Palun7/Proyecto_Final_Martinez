@@ -5,14 +5,6 @@
 {% endblock title %}
 
 {% block content %}
-    <nav class="navbar">
-        <div class="titulo">
-            <h3><a href="{% url 'core:index' %}" class="link">Home</a></h3>
-        </div>
-        <div class="login">
-                    <a href="{% url 'login:index' %}" class="link">login</a>
-        </div>
-    </nav>
     <main class="contenedor">
         {% if mensaje %}
         <p class="mensaje_singup">{{ mensaje }}</p>

@@ -5,27 +5,6 @@
 {% endblock title %}
 
 {% block content %}
-    <nav class="navbar">
-        <div class="titulo">
-            <h3><a href="{% url 'core:index' %}" class="link">Home</a></h3>
-            {% if user.is_authenticated %}
-                <h5 class="user">{{ user.username }}</h5>
-            {% endif %}
-        </div>
-        <div class="paginas">
-            <ul class="links">
-                <a href="{% url 'perfil:index' %}" class="link">Perfil: {{ user.username }}</a>
-            </ul>
-        </div>
-        <div class="login">
-                {% if user.is_authenticated %}
-                <form action="{% url 'login:logout' %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit" class="logout">Logout</button>
-                </form>
-                {% endif %}
-        </div>
-    </nav>
     <main class="contenedor">
         <p class="pregunta_borrar">¿Confirma eliminar la veterinaria "{{ object.nombre }}"?</p>
         <form method="post" class="form_borrar">

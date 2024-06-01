@@ -5,18 +5,6 @@
 {% endblock title %}
 
 {% block content %}
-    <nav class="navbar">
-        <div class="titulo">
-            <h3><a href="{% url 'core:index' %}" class="link">Home</a></h3>
-            {% if user.is_authenticated %}
-                <h5 class="user">{{ user.username }}</h5>
-            {% endif %}
-        </div>
-        <div class="login">
-                    <a href="{% url 'login:index' %}" class="link">login</a>
-                    <a href="{% url 'login:singup' %}" class="link">Crear Usuario</a>
-        </div>
-    </nav>
     <main class="contenedor">
         <div class="logout_contenedor">
             <h1 class="sesion_cerrada">Pawsesión Cerrada</h1>

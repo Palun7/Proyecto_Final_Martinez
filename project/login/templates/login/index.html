@@ -7,22 +7,6 @@
 </head>
 
 {% block content %}
-    <nav class="navbar">
-        <div class="titulo">
-            <h3><a href="{% url 'core:index' %}" class="link">Home</a></h3>
-            {% if user.is_authenticated %}
-                <h5 class="user">{{ user.username }}</h5>
-            {% endif %}
-        </div>
-        <div class="login">
-                {% if user.is_authenticated %}
-                <form action="{% url 'login:logout' %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit" class="logout">Logout</button>
-                </form>
-                {% endif %}
-        </div>
-    </nav>
     <main class="contenedor">
         <h1 class="titulo_login_1">Iniciar Sesion</h1>
         <form method="post" class="formulario_login">

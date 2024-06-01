@@ -6,26 +6,6 @@
 {% endblock title %}
 
 {% block content %}
-    <nav class="navbar">
-        {% if user.is_authenticated %}
-            <div class="paginas">
-                <ul class="links">
-                    <a href="{% url 'perfil:index' %}" class="link">Perfil: {{ user.username }}</a>
-                </ul>
-            </div>
-        {% endif %}
-        <div class="login">
-            {% if user.is_authenticated %}
-            <form action="{% url 'login:logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit" class="logout">Logout</button>
-            </form>
-            {% else %}
-            <a href="{% url 'login:index' %}" class="link">login</a>
-            <a href="{% url 'login:singup' %}" class="link">Crear Usuario</a>
-            {% endif %}
-        </div>
-    </nav>
     <main class="contenedor">
         <p class="imagen_patita"><img src="{% static 'img/patita.jpg' %}" alt="" width="" height="" class="patita"></p>
         <h1 class="titulo_index">Pawiki</h1>
