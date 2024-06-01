@@ -39,6 +39,7 @@
                 <li>Tip o Curiosidad: {{ object.tip_o_curiosidad }}</li>
                 {% if object.url %}
                     <li>URL: <a href="{{ object.url }}" target="_blank" rel="noopener noreferrer" class="url_tipcuriosidad">{{ object.url }}</a></li>
+                    <iframe width="560" height="315" src="{{ tipcuriosidad.url }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 {% endif %}
                 {% if object.dato %}
                     <li>Dato: {{ object.dato }}</li>

@@ -74,6 +74,7 @@ class TipCuriosidadCreate(CreateView, LoginRequiredMixin):
 
 class TipCuriosidadDetail(DetailView):
     model = TipCuriosidad
+    context_object_name = 'tipcuriosidad'
 
 class TipCuriosidadUpdate(UpdateView, LoginRequiredMixin):
     model = TipCuriosidad
